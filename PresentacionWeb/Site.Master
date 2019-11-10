@@ -1,0 +1,96 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="PresentacionWeb.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <title>Las Frambuesas</title>
+    <link rel="stylesheet" href="StyleSheet.css">
+<%--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">--%>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<%-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>--%>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+
+
+
+    <%--MATERIALIZE--%>
+    <nav class="nav-extended">
+    <div class="nav-wrapper">
+      <a href="https://drive.google.com/uc?id=0B30pqJ7Q99__TmpuZHJMYlEzVV83aHc0RUp4eGRpdFJMS1Rz" width="80" height="80" alt="" class="brand-logo"></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+    <div class="nav-content">
+      <ul class="tabs tabs-transparent">
+        <li class="tab"><a runat="server" href="~/Chocolate">CHOCOLATE</a></li>
+        <li class="tab"><a runat="server" href="~/Dulce-de-leche">DULCE DE LECHE</a></li>
+        <li class="tab"><a runat="server" href="~/Cheesecake">CHEESECAKE</a></li>
+        <li class="tab"><a runat="server" href="~/Frutales">FRUTALES</a></li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">Sass</a></li>
+    <li><a href="badges.html">Components</a></li>
+    <li><a href="collapsible.html">JavaScript</a></li>
+  </ul>
+
+<%--  <div id="test1" class="col s12">Test 1</div>
+  <div id="test2" class="col s12">Test 2</div>
+  <div id="test3" class="col s12">Test 3</div>
+  <div id="test4" class="col s12">Test 4</div>--%>
+        
+
+
+
+
+    <%--BOOTS--%>
+<%-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+     <div class="login-carrito">
+        <a runat="server" class="login-nav" href="~/Usuario">Ingresa</a>
+        <a runat="server" class="carrito" href="~/Carrito">logo carrito</a>
+    </div>
+       <img src="https://drive.google.com/uc?id=0B30pqJ7Q99__TmpuZHJMYlEzVV83aHc0RUp4eGRpdFJMS1Rz" width="80" height="80" alt="">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a runat="server" class="nav-item nav-link" href="~/Home">HOME <span class="sr-only"></span></a>
+      <a runat="server" class="nav-item nav-link" href="~/Chocolate">CHOCOLATE</a>
+      <a runat="server" class="nav-item nav-link" href="~/Dulce-de-leche">DULCE DE LECHE</a>
+      <a runat="server" class="nav-item nav-link" href="~/Cheesecake">CHEESECAKE</a>
+      <a runat="server" class="nav-item nav-link" href="~/Frutales">FRUTALES</a>
+      <a runat="server" class="nav-item nav-link" href="~/Tematicas" >TEMATICAS</a>
+      <a runat="server" class="nav-item nav-link" href="~/About">SOBRE NOSOTROS</a>
+    </div>
+  </div>
+</nav>--%>
+
+
+
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr/>
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Daniela Rubinstein</p>
+            </footer>
+        </div>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

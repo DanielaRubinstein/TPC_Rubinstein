@@ -1,0 +1,33 @@
+﻿body {
+}
+
+.login-carrito {
+    position: absolute;
+    display: flex;
+    left: 80vw;
+    top: 1vw;
+}
+.login-nav {
+    display: inline-block;
+    color: rgba(0,0,0,.5);
+    text-decoration: none;
+    margin: auto 10px;
+}
+.login-nav a{
+   text-decoration:none;
+ }
+    .login-nav:hover {
+        color: #000000;
+    }
+.carrito {
+    display: inline-block;
+    color: rgba(0,0,0,.5);
+}
+
+@media (max-width:990px){
+
+    button.navbar-toggler {
+        position: absolute;
+        left: 20vw;
+    }
+}
