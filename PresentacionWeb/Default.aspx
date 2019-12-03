@@ -2,7 +2,7 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-      <div class="row" ID="cards">
+<%--      <div class="row" ID="cards">
 
     </div>
 
@@ -68,7 +68,7 @@
             }
         })
 
-    </script>
+    </script>--%>
 
 
 </asp:Content>

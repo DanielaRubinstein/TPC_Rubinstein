@@ -15,45 +15,23 @@ namespace PresentacionWeb
         public List<Producto> listaProducto { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            List<Producto> filtroCategoria;
+            //List<Producto> productoFiltradoCat;
             try
             {
                 
-                ProductoNegocio producto = new ProductoNegocio();
-                listaProducto = producto.listar();
+                ProductoNegocio productoNegocio = new ProductoNegocio();
+                listaProducto = productoNegocio.listarCategorias("Chocolate");
+
+                //listaProducto = productoNegocio.listar().FindAll(x =>
+                //        x.categorias.Exists(y => y.Descripcion.Contains("Chocolate"));
+                //productoFiltradoCat = listaProducto.FindAll(k => k.categoria.Descripcion.Contains("Chocolate"));
 
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
-
         }
-
-        private void txtBusqueda_TextChanged(object sender, EventArgs e)
-        {
-            List<Pokemon> listaFiltrada;
-            try
-            {
-                if (txtBusqueda.Text == "")
-                {
-                    listaFiltrada = lista;
-                }
-                else
-                {
-                    listaFiltrada = lista.FindAll(k => k.Descripcion.ToLower().Contains(txtBusqueda.Text.ToLower()) || k.Nombre.ToLower().Contains(txtBusqueda.Text.ToLower()) || (k.Evolucion != null ? k.Evolucion.Nombre.ToLower().Contains(txtBusqueda.Text.ToLower()) : k.Nombre.Contains("")));
-                }
-                dgvListadoPokemones.DataSource = listaFiltrada;
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-            }
-        }
-
 
         //PARA AJAX
         //[WebMethod]

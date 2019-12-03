@@ -37,6 +37,16 @@ namespace Negocio
             comando.CommandText = consulta;
         }
 
+        public void InitComando()
+        {
+            comando = new SqlCommand();
+            comando.CommandType = System.Data.CommandType.Text;
+        }
+        public void ComandoQuery(string consulta)
+        {
+            comando.CommandText = consulta;
+        }
+
         public void AbrirConexion()
         {
             try
