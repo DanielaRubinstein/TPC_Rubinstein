@@ -14,7 +14,7 @@
                     <p><%=item.Precio %></p>
                 </div>
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn" href="CargaProducto.aspx?idProducto=<% = item.IdProducto.ToString() %>">Modificar</a>
+                    <a class="waves-effect waves-light btn" href="CargaProducto.aspx?idProducto=<% = item.IdProducto.ToString() %>">Editar</a>
                 </div>
             </div>
         </div>

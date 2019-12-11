@@ -12,7 +12,7 @@
                     <p><%=item.Precio %></p>
                 </div>
                 <div class="card-action">
-                    <a class="waves-effect waves-light btn" href="#"><i class="material-icons">shopping_cart</i></a>
+                    <a class="waves-effect waves-light btn" href="Carrito.aspx?idProducto=<% = item.IdProducto.ToString() %>"><i class="material-icons">shopping_cart</i></a>
                 </div>
             </div>
         </div>

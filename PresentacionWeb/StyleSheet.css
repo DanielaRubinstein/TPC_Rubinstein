@@ -24,9 +24,24 @@
     color: rgba(0,0,0,.5);
 }
 
-@media (max-width:990px){
+.collection .collection-item.avatar .title{
+    position: relative!important;
+    bottom: 60px!important;
+}
+.collection .collection-item.avatar p{
+    position: relative!important;
+    margin-left: 105px!important;
+    bottom: 50px!important;
+}
+.btn, .btn-large, .btn-small, .btn-flat {
+    padding: 0 10px!important;
+}
+.card .card-action {
+    padding: 16px 16px!important;
+}
 
-    button.navbar-toggler {
+@media (max-width:990px) {
+    button .navbar-toggler {
         position: absolute;
         left: 20vw;
     }

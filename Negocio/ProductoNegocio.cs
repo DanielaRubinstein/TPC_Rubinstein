@@ -196,5 +196,54 @@ namespace Negocio
             }
         }
 
+        public Producto obtenerProducto(int IdProducto)
+        {
+            Producto producto = null;
+            AccesoDatos accesoDatos = new AccesoDatos();
+            //Producto producto;
+
+            try
+            {
+                accesoDatos.SetearConsulta("Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO inner join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where P.IdProducto=" + IdProducto);
+                accesoDatos.AbrirConexion();
+                accesoDatos.ejecutarConsulta();
+
+                while (accesoDatos.Lector.Read())
+                {
+                    //Producto productoAux = productoSeleccionado.Find(x => x.IdProducto == (int)accesoDatos.Lector["IdProducto"]);
+
+                    if (producto == null)
+                    {
+                        producto = new Producto();
+                        producto.IdProducto = (int)accesoDatos.Lector["IdProducto"];
+                        producto.Descripcion = accesoDatos.Lector["Descripcion"].ToString();
+                        producto.categorias = new List<Categoria>();
+                        producto.categorias.Add(new Categoria() { Descripcion = accesoDatos.Lector["Categoria"].ToString() });
+                        producto.StockActual = (int)accesoDatos.Lector["StockActual"];
+                        producto.Precio = (decimal)accesoDatos.Lector["Precio"];
+                        producto.Impuesto = (decimal)accesoDatos.Lector["Impuesto"];
+                        producto.Costo = (decimal)accesoDatos.Lector["Costo"];
+                        producto.Estado = (bool)accesoDatos.Lector["Estado"];
+                        producto.Imagen = accesoDatos.Lector["Imagen"].ToString();
+                        //productoSeleccionado.Add(producto);
+                    }
+                    else
+                    {
+                        producto.categorias.Add(new Categoria() { Descripcion = accesoDatos.Lector["Categoria"].ToString() });
+                    }
+                }
+                return producto;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                accesoDatos.cerrarConexion();
+            }
+
+        }
+
     }
 }
