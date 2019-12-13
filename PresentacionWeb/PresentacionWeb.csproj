@@ -118,6 +118,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Dulce-de-Leche.aspx" />
+    <Content Include="EditarProducto.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Frutales.aspx" />
@@ -227,6 +228,13 @@
     </Compile>
     <Compile Include="Dulce-de-Leche.aspx.designer.cs">
       <DependentUpon>Dulce-de-Leche.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditarProducto.aspx.cs">
+      <DependentUpon>EditarProducto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarProducto.aspx.designer.cs">
+      <DependentUpon>EditarProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Frutales.aspx.cs">
       <DependentUpon>Frutales.aspx</DependentUpon>

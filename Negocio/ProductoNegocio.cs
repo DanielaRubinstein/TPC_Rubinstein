@@ -17,7 +17,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.SetearConsulta("Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO inner join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where Estado=1");
+                accesoDatos.SetearConsulta("Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where Estado = 1");
                 accesoDatos.AbrirConexion();
                 accesoDatos.ejecutarConsulta();
 
@@ -67,35 +67,43 @@ namespace Negocio
             AccesoDatos accesoDatos = new AccesoDatos();
             try
             {
-                accesoDatos.SetearConsulta(@"
-                                            update PRODUCTO set 
-                                            Descripcion=@Descripcion,
-                                            StockActual=@StockActual,
-                                            Precio=@Precio,
-                                            Impuesto=@Impuesto,
-                                            Costo=@Costo,
-                                            Estado=@Estado,
-                                            Imagen=@Imagen 
-                                            where IdProducto=" + productoModificado.IdProducto);
+                accesoDatos.InitComando();
+                accesoDatos.Comando.Parameters.Clear();
+
+                string consulta =@"
+                                update PRODUCTO set 
+                                Descripcion=@Descripcion,
+                                StockActual=@StockActual,
+                                Precio=@Precio,
+                                Impuesto=@Impuesto,
+                                Costo=@Costo,
+                                Estado=@Estado,
+                                Imagen=@Imagen 
+                                where IdProducto=" + productoModificado.IdProducto;
+
+                   consulta +=@" Delete from CATEGORIAS_X_PRODUCTO
+                           where Idproducto="+ productoModificado.IdProducto;
                 
                 if (productoModificado.categorias != null && productoModificado.categorias.Count > 0)
                 {
+
                     for (int i = 0; i < productoModificado.categorias.Count; i++)
                     {
-                      accesoDatos.SetearConsulta( @" insert into CATEGORIAS_X_PRODUCTO
-                                                  (IDPRODUCTO, IDCATEGORIA)
-                                                  values(" +productoModificado.IdProducto+", @IdCategoria" + i + ")");
+                     consulta+= @" insert into CATEGORIAS_X_PRODUCTO
+                                (IDPRODUCTO, IDCATEGORIA)
+                                values(" +productoModificado.IdProducto+", @IdCategoria" + i + ")";
                       accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoModificado.categorias[i].IdCategoria);
                     }
                 }
 
-                accesoDatos.Comando.Parameters.Clear();
+                accesoDatos.ComandoQuery(consulta);
+                //accesoDatos.Comando.Parameters.Clear();
                 accesoDatos.Comando.Parameters.AddWithValue("@Descripcion", productoModificado.Descripcion);
                 //accesoDatos.Comando.Parameters.AddWithValue("@Categoria", productoModificado.categorias);
                 accesoDatos.Comando.Parameters.AddWithValue("@StockActual", productoModificado.StockActual);
-                accesoDatos.Comando.Parameters.AddWithValue("@PrecioNeto", productoModificado.Precio);
+                accesoDatos.Comando.Parameters.AddWithValue("@Precio", productoModificado.Precio);
                 accesoDatos.Comando.Parameters.AddWithValue("@Impuesto", productoModificado.Impuesto);
-                accesoDatos.Comando.Parameters.AddWithValue("@CostoNeto", productoModificado.Costo);
+                accesoDatos.Comando.Parameters.AddWithValue("@Costo", productoModificado.Costo);
                 //accesoDatos.Comando.Parameters.AddWithValue("@IdProveedor", productoModificado.Proveedor.IdEmpresa); //combobox
                 accesoDatos.Comando.Parameters.AddWithValue("@Estado", productoModificado.Estado);
                 accesoDatos.Comando.Parameters.AddWithValue("@Imagen", productoModificado.Imagen);
@@ -132,7 +140,6 @@ namespace Negocio
                 accesoDatos.cerrarConexion();
             }
         }
-
 
         public void agregarProducto(Producto productoNuevo)
         {
@@ -204,7 +211,7 @@ namespace Negocio
 
             try
             {
-                accesoDatos.SetearConsulta("Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO inner join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where P.IdProducto=" + IdProducto);
+                accesoDatos.SetearConsulta("Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where P.IdProducto=" + IdProducto);
                 accesoDatos.AbrirConexion();
                 accesoDatos.ejecutarConsulta();
 
