@@ -24,10 +24,13 @@
     <%--MATERIALIZE--%>
     <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="https://drive.google.com/uc?id=0B30pqJ7Q99__TmpuZHJMYlEzVV83aHc0RUp4eGRpdFJMS1Rz" width="80" height="80" alt="" class="brand-logo"></a>
+      <a href="#"  alt="" class="brand-logo">
+          <img src="https://drive.google.com/uc?id=0B30pqJ7Q99__TmpuZHJMYlEzVV83aHc0RUp4eGRpdFJMS1Rz" alt=""  />
+      </a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-           <li><a runat="server" href="~/Usuario">Ingresar</a></li>
+           <li><a ID="linkIngresar" runat="server" href="~/Ingresar">Ingresar</a></li>
+           <li><a ID="linkDesloguear" runat="server" href="~/Desloguear">Desloguear</a></li>
            <li><a runat="server" href="~/Carrito"><i class="material-icons">add_shopping_cart</i></a></li>
       </ul>
     </div>
@@ -42,7 +45,7 @@
     </div>
   </nav>
   <ul class="sidenav" id="mobile-demo">
-    <li><a runat="server" href="~/Usuario">Ingresar</a></li>
+    <li><a runat="server" href="~/Ingresar">Ingresar</a></li>
     <li><a runat="server" href="~/Carrito">Carrito</a></li>
   </ul>
 

@@ -25,7 +25,7 @@ namespace Negocio
                 while (accesoDatos.Lector.Read())
                 {
                     proveedor = new Proveedor();
-                    proveedor.IdEmpresa = (int)accesoDatos.Lector["IdProveedor"];
+                    proveedor.Id = (int)accesoDatos.Lector["IdProveedor"];
                     proveedor.CUIL = accesoDatos.Lector["CUIL"].ToString();
                     proveedor.RazonSocial = accesoDatos.Lector["RazonSocial"].ToString();
                     proveedor.Direccion = accesoDatos.Lector["Direccion"].ToString();
@@ -79,7 +79,7 @@ namespace Negocio
             AccesoDatos accesoDatos = new AccesoDatos();
             try
             {
-                accesoDatos.SetearConsulta("update Proveedor set CUIL=@CUIL, RazonSocial=@RazonSocial, Direccion=@Direccion, Localidad=@Localidad, Contacto=@Contacto, Telefono=@Telefono, Mail=@Mail, Estado=@Estado where IdProveedor=" + proveedor.IdEmpresa);
+                accesoDatos.SetearConsulta("update Proveedor set CUIL=@CUIL, RazonSocial=@RazonSocial, Direccion=@Direccion, Localidad=@Localidad, Contacto=@Contacto, Telefono=@Telefono, Mail=@Mail, Estado=@Estado where IdProveedor=" + proveedor.Id);
                 accesoDatos.Comando.Parameters.Clear();
                 accesoDatos.Comando.Parameters.AddWithValue("@CUIL", proveedor.CUIL);
                 accesoDatos.Comando.Parameters.AddWithValue("@RazonSocial", proveedor.RazonSocial);

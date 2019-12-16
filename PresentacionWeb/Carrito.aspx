@@ -10,9 +10,23 @@
       <span class="title"><%= item.Descripcion %></span>
       <p><%=item.Precio %></p>
       <a href="#!" class="secondary-content"><i class="material-icons">delete_forever</i></a>
-    </li>
+    </li>  
+
        <% }%>
   </ul>
+
+ <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">attach_money</i>
+          <label id="icon_prefix" type="text" class="validate">TOTAL: <%= total %> </label>      
+            <%--<p id="icon_prefix" type="text" class="validate" position="relative" left="30"><%= total %></p>--%>
+        </div>
+      </div>
+    </form>
+  </div>
+   
 
 </asp:Content>
 

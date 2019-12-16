@@ -117,6 +117,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Desloguear.aspx" />
     <Content Include="Dulce-de-Leche.aspx" />
     <Content Include="EditarProducto.aspx" />
     <Content Include="favicon.ico" />
@@ -133,6 +134,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Home.aspx" />
+    <Content Include="Ingresar.aspx" />
     <Content Include="ListadoProductos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -222,6 +224,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Desloguear.aspx.cs">
+      <DependentUpon>Desloguear.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Desloguear.aspx.designer.cs">
+      <DependentUpon>Desloguear.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dulce-de-Leche.aspx.cs">
       <DependentUpon>Dulce-de-Leche.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -252,6 +261,13 @@
     </Compile>
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ingresar.aspx.cs">
+      <DependentUpon>Ingresar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ingresar.aspx.designer.cs">
+      <DependentUpon>Ingresar.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListadoProductos.aspx.cs">
       <DependentUpon>ListadoProductos.aspx</DependentUpon>

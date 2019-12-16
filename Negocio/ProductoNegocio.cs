@@ -32,7 +32,7 @@ namespace Negocio
                         producto.categorias = new List<Categoria>();
                         producto.categorias.Add(new Categoria() { Descripcion = accesoDatos.Lector["Categoria"].ToString() });
                         producto.StockActual = (int)accesoDatos.Lector["StockActual"];
-                        producto.Precio = (decimal)accesoDatos.Lector["Precio"];
+                        producto.Precio = Math.Round((decimal)accesoDatos.Lector["Precio"],2);
                         producto.Impuesto = (decimal)accesoDatos.Lector["Impuesto"];
                         producto.Costo = (decimal)accesoDatos.Lector["Costo"];
                         producto.Estado = (bool)accesoDatos.Lector["Estado"];
@@ -227,7 +227,7 @@ namespace Negocio
                         producto.categorias = new List<Categoria>();
                         producto.categorias.Add(new Categoria() { Descripcion = accesoDatos.Lector["Categoria"].ToString() });
                         producto.StockActual = (int)accesoDatos.Lector["StockActual"];
-                        producto.Precio = (decimal)accesoDatos.Lector["Precio"];
+                        producto.Precio = Math.Round((decimal)accesoDatos.Lector["Precio"],2);
                         producto.Impuesto = (decimal)accesoDatos.Lector["Impuesto"];
                         producto.Costo = (decimal)accesoDatos.Lector["Costo"];
                         producto.Estado = (bool)accesoDatos.Lector["Estado"];

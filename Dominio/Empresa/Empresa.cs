@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class Empresa
     {
-        public int IdEmpresa { get; set; }
+        public int Id { get; set; }
         public string CUIL { get; set; }
         public string Direccion { get; set; }
         public string Localidad { get; set; }

@@ -10,7 +10,7 @@
       <div class="row">
         <div class="input-field col s6">
         <asp:TextBox ID="txtDescripcion" ClientIDMode="Static" Name="txtDescripcion" CssClass="validate" type="text" runat="server" OnLoad="Page_Load"></asp:TextBox>
-            <%--<span><%= txtDescripcion %></span>--%>
+            <label for="txtDescripcion">Descripcion</label>
         </div>
        <div class="input-field col s6">
         <asp:TextBox ID="txtStockActual" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />

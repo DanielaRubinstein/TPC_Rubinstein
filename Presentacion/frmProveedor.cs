@@ -75,7 +75,7 @@ namespace Presentacion
                         proveedor.Mail = txtMail.Text;
                     }
 
-                    if(proveedor.IdEmpresa != 0 && modificado == true)
+                    if(proveedor.Id != 0 && modificado == true)
                     {
                         proveedor.CUIL = txtCUIL.Text;
                         proveedor.RazonSocial = txtRazonSocial.Text;

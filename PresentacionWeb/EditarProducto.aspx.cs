@@ -40,12 +40,23 @@ namespace PresentacionWeb
                 txtCosto.Text = producto.Costo.ToString();
                 txtImagen.Text = producto.Imagen.ToString();
 
-                    if (ckbCategoryCheesecake.Checked == true)
+                foreach (Categoria item in producto.categorias)
+                {
+                    switch (item.Descripcion)
                     {
-                        string valor = ckbCategoryCheesecake.ToString();
-                       // string Nombre = cblElemetos.Items[i].Text;
+                        case "Chocolate":ckbCategoryChocolate.Checked = true;
+                            break;
+                        case "Cheesecake":
+                            ckbCategoryCheesecake.Checked = true;
+                            break;
+                        default:
+                            break;
                     }
-
+                }
+                //if ()
+                //{
+                //    ckbCategoryCheesecake.InputAttributes.Add("checked", "checked");
+                //}
             }
             //int variable = int.Parse(Request.QueryString["IdProducto"]);
         }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConstantesSession.cs" />
     <Compile Include="Factura\DetalleFactura.cs" />
     <Compile Include="Factura\Factura.cs" />
     <Compile Include="Producto\Categoria.cs" />
