@@ -49,6 +49,15 @@ namespace PresentacionWeb
                         case "Cheesecake":
                             ckbCategoryCheesecake.Checked = true;
                             break;
+                        case "Frutales":
+                            ckbCategoryCheesecake.Checked = true;
+                            break;
+                        case "Dulce de leche":
+                            ckbCategoryCheesecake.Checked = true;
+                            break;
+                        case "Tematicas":
+                            ckbCategoryCheesecake.Checked = true;
+                            break;
                         default:
                             break;
                     }

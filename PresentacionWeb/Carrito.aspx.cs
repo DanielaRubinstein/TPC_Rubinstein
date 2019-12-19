@@ -54,8 +54,13 @@ namespace PresentacionWeb
             //cantidad.Text = carrito.Count.ToString();
         }
 
-        public void btnAceptar_Click()
+        public void btnAceptar_Click(object sender, EventArgs e)
         {
+
+
+            //Enviar datos a la base
+            //Mensaje de pedido enviado
+
 
         }
     }

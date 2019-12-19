@@ -1,11 +1,21 @@
 ﻿body {
 }
 
-.brand-logo img {
-    width:80px; 
-    height:80px;
-    padding:10px;
+.row .col {
+  padding: 0px!important;
 }
+    .row .col.l2 {
+        width: 20%!important;
+    }
+    .row .col.m2 {
+        width: 20%!important;
+    }
+
+    .brand-logo img {
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+    }
 .login-carrito {
     position: absolute;
     display: flex;

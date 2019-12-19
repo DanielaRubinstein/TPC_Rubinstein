@@ -16,14 +16,16 @@
   </ul>
 
  <div class="row">
-    <form class="col s12">
+    <form class="col s12" runat="server">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">attach_money</i>
           <label id="icon_prefix" type="text" class="validate">TOTAL: <%= total %> </label>      
-            <%--<p id="icon_prefix" type="text" class="validate" position="relative" left="30"><%= total %></p>--%>
         </div>
       </div>
+         <asp:Button class="btn waves-effect waves-light btn-large" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Confirmar pedido" >
+                <%--<i class="material-icons right">send</i>--%>
+         </asp:Button>
     </form>
   </div>
    

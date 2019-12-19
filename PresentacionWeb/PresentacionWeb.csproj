@@ -135,6 +135,7 @@
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Home.aspx" />
     <Content Include="Ingresar.aspx" />
+    <Content Include="ListadoPedidos.aspx" />
     <Content Include="ListadoProductos.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -167,6 +168,7 @@
     <Content Include="Site.Master" />
     <Content Include="StyleSheet.css" />
     <Content Include="Tematicas.aspx" />
+    <Content Include="VerDetallePedido.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -269,6 +271,13 @@
     <Compile Include="Ingresar.aspx.designer.cs">
       <DependentUpon>Ingresar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListadoPedidos.aspx.cs">
+      <DependentUpon>ListadoPedidos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListadoPedidos.aspx.designer.cs">
+      <DependentUpon>ListadoPedidos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListadoProductos.aspx.cs">
       <DependentUpon>ListadoProductos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -297,6 +306,13 @@
     </Compile>
     <Compile Include="Tematicas.aspx.designer.cs">
       <DependentUpon>Tematicas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="VerDetallePedido.aspx.cs">
+      <DependentUpon>VerDetallePedido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="VerDetallePedido.aspx.designer.cs">
+      <DependentUpon>VerDetallePedido.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

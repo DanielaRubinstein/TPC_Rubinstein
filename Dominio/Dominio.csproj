@@ -42,8 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConstantesSession.cs" />
-    <Compile Include="Factura\DetalleFactura.cs" />
-    <Compile Include="Factura\Factura.cs" />
+    <Compile Include="Pedido\DetallePedido.cs" />
+    <Compile Include="Pedido\Pedido.cs" />
     <Compile Include="Producto\Categoria.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="Empresa\Cliente.cs" />
