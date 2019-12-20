@@ -28,7 +28,6 @@ namespace Negocio
                 while (accesoDatos.Lector.Read())
                 {
                     DetallePedido detallePedidoAux = lista.Find(x => x.IdDetalle == (int)accesoDatos.Lector["IdDetalle"]);
-
                     if (detallePedidoAux == null)
                     {
                         detallePedido = new DetallePedido();
@@ -36,7 +35,7 @@ namespace Negocio
                         detallePedido.producto = new Producto();
                         detallePedido.producto.Descripcion = accesoDatos.Lector["Descripcion"].ToString();
                         detallePedido.Cantidad = (int)accesoDatos.Lector["Cantidad"];
-                        detallePedido.Precio = (decimal)accesoDatos.Lector["Precio"];
+                        detallePedido.producto.Precio = (decimal)accesoDatos.Lector["Precio"];
                         //producto.StockActual = (int)accesoDatos.Lector["StockActual"];
                         //producto.Precio = Math.Round((decimal)accesoDatos.Lector["Precio"], 2);
 
@@ -76,19 +75,12 @@ namespace Negocio
 
                 while (accesoDatos.Lector.Read())
                 {
-                    if (detallePedido == null)
-                    {
                         detallePedido = new DetallePedido();
                         detallePedido.producto = new Producto();
                         detallePedido.producto.Descripcion = accesoDatos.Lector["Descripcion"].ToString();
                         detallePedido.Cantidad = (int)accesoDatos.Lector["Cantidad"];
-                        detallePedido.Precio = (decimal)accesoDatos.Lector["Precio"];
+                        detallePedido.producto.Precio = (decimal)accesoDatos.Lector["Precio"];
                         listaDetallePedido.Add(detallePedido);
-                    }
-                    else
-                    {
-                        //producto.categorias.Add(new Categoria() { Descripcion = accesoDatos.Lector["Categoria"].ToString() });
-                    }
                 }
                 return listaDetallePedido;
             }

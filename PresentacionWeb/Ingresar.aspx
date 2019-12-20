@@ -19,16 +19,14 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-            <asp:Label ID="lblError" runat="server" Text="Mail y/o Password incorrectos" CssClass="red" Visible="false"></asp:Label>
+            <asp:Label ID="lblError" runat="server" Text="Mail y/o Password incorrectos" CssClass="red-text" Visible="false"></asp:Label>
         </div>
       </div>
-        
      <asp:Button class="btn waves-effect waves-light btn-large"  OnClick="btnIngresar_Click" type="submit" name="action" runat="server" Text="Ingresar" >
-    <%--<i class="material-icons right">send</i>--%>
-  </asp:Button>
-       <asp:Button class="btn waves-effect waves-light btn-large"  OnClick="btnCancelar_Click" type="submit" name="action" runat="server" Text="Cancelar" >
-    <%--<i class="material-icons right">send</i>--%>
-  </asp:Button>
+     </asp:Button>
+            <div class="card-action">
+                    <a class="waves-effect waves-light btn" href="FormularioCliente.aspx">Usuario Nuevo</a>
+            </div>
     </form>
   </div>
 

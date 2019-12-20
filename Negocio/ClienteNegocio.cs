@@ -25,7 +25,6 @@ namespace Negocio
                 if (conexion.Lector.Read())
                 {
                     cliente.Id = (int)conexion.Lector["IdCliente"];
-                    cliente.CUIL = (string)conexion.Lector["CUIL"];
                     cliente.Nombre = (string)conexion.Lector["Nombre"];
                     cliente.Apellido = (string)conexion.Lector["Apellido"];
                     cliente.Direccion = (string)conexion.Lector["Direccion"];
@@ -46,5 +45,31 @@ namespace Negocio
             }
         }
 
+
+        public void agregarCliente(Cliente clienteNuevo)
+        {
+            AccesoDatos accesoDatos = new AccesoDatos();
+            string consulta = "";
+            try
+            {
+                consulta = "insert into Cliente (Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Pass,Estado,Bloqueado)";
+                consulta = consulta + "values('" + clienteNuevo.Nombre + "','" + clienteNuevo.Apellido + "', '" + clienteNuevo.Direccion + "', '" + clienteNuevo.Localidad + "', '" + clienteNuevo.Telefono + "', '" + clienteNuevo.Mail + "', '" + clienteNuevo.Pass + "', '" + 1 + "', " + 0 + ")";
+                accesoDatos.SetearConsulta(consulta);
+                accesoDatos.AbrirConexion();
+                accesoDatos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                if (accesoDatos != null)
+                {
+                    accesoDatos.cerrarConexion();
+                }
+            }
+        }
     }
 }

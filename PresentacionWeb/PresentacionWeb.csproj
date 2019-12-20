@@ -122,6 +122,7 @@
     <Content Include="EditarProducto.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FormularioCliente.aspx" />
     <Content Include="Frutales.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -132,12 +133,14 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Admin.Master" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Home.aspx" />
     <Content Include="Ingresar.aspx" />
     <Content Include="ListadoDetallePedido.aspx" />
     <Content Include="ListadoPedidos.aspx" />
     <Content Include="ListadoProductos.aspx" />
+    <Content Include="PedidoConfirmado.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
@@ -175,6 +178,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -247,6 +257,13 @@
     <Compile Include="EditarProducto.aspx.designer.cs">
       <DependentUpon>EditarProducto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormularioCliente.aspx.cs">
+      <DependentUpon>FormularioCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioCliente.aspx.designer.cs">
+      <DependentUpon>FormularioCliente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Frutales.aspx.cs">
       <DependentUpon>Frutales.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -291,6 +308,13 @@
     </Compile>
     <Compile Include="ListadoProductos.aspx.designer.cs">
       <DependentUpon>ListadoProductos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PedidoConfirmado.aspx.cs">
+      <DependentUpon>PedidoConfirmado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PedidoConfirmado.aspx.designer.cs">
+      <DependentUpon>PedidoConfirmado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

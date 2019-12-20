@@ -20,15 +20,10 @@ namespace PresentacionWeb
         {
             try
             {
-                //List<DetallePedido> listaDetallePedido = new List<DetallePedido>();
                 DetallePedidoNegocio detallePedidoNegocio = new DetallePedidoNegocio();
                 listaDetallePedido = detallePedidoNegocio.obtenerDetalle(int.Parse(Request.QueryString["IdPedido"]));
-
-                
                 //listaDetallePedido = detallePedidoNegocio.listar();
             }
-
-
             catch (Exception ex)
             {
                 throw ex;

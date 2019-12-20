@@ -23,6 +23,10 @@
           <label id="icon_prefix" type="text" class="validate">TOTAL: <%= total %> </label>      
         </div>
       </div>
+        <div class="input-field col s6">
+        <asp:TextBox ID="txtFecha" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+            <label for="txtFecha">Agregar fecha de entrega</label>
+        </div>
          <asp:Button class="btn waves-effect waves-light btn-large" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Confirmar pedido" >
                 <%--<i class="material-icons right">send</i>--%>
          </asp:Button>

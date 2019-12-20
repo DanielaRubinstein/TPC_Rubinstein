@@ -34,8 +34,6 @@ namespace PresentacionWeb
                     lblError.Visible = false;
                     Session[ConstantesSession.USUARIO_LOGUEADO]=cliente;
                     Response.Redirect("~/Chocolate");
-
-
                 }
                 else
                 {
@@ -43,12 +41,9 @@ namespace PresentacionWeb
                     lblError.Visible = true;
                     //TO DO: bloqueo de usuario
                 }
-
-
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
 

@@ -27,8 +27,6 @@ namespace PresentacionWeb
             ckbCategoryFrutales.InputAttributes.Add("data-categoryId", "3");
             ckbCategoryDulce.InputAttributes.Add("data-categoryId", "4");
             ckbCategoryTematicas.InputAttributes.Add("data-categoryId", "5");
-
-            //int variable = int.Parse(Request.QueryString["IdProducto"]);
         }
 
         public void btnAceptar_Click(object sender,EventArgs e)

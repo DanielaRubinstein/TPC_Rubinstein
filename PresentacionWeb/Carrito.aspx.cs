@@ -56,12 +56,29 @@ namespace PresentacionWeb
 
         public void btnAceptar_Click(object sender, EventArgs e)
         {
+            PedidoNegocio pedidoNegocio = new PedidoNegocio();
+            Pedido pedido = new Pedido();
+            List<Producto> listaProducto = (List<Producto>)Session[ConstantesSession.CARRITO];
 
+            pedido.cliente = (Cliente)Session[ConstantesSession.USUARIO_LOGUEADO];
+            pedido.Fecha = DateTime.Now;
+            pedido.FechaEntrega = DateTime.Parse(txtFecha.Text);
+            pedido.detallePedido = new List<DetallePedido>();
+           
+            foreach (var item in listaProducto)
+            {
+                DetallePedido detallePedido = new DetallePedido();
+                detallePedido.producto = item;
+                detallePedido.Cantidad = 1;
+                pedido.detallePedido.Add(detallePedido);
+            }
 
-            //Enviar datos a la base
+            pedido.Estado = true;
+            pedidoNegocio.AgregarPedido(pedido);
+
+            Session[ConstantesSession.CARRITO]=null;
+            Response.Redirect("~/PedidoConfirmado");
             //Mensaje de pedido enviado
-
-
         }
     }
 }
