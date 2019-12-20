@@ -59,10 +59,11 @@ namespace Negocio
             }
         }
 
-        public DetallePedido obtenerDetalle(int IdPedido)
+        public List<DetallePedido> obtenerDetalle(int IdPedido)
         {
-            DetallePedido detallePedido = null;
+            List<DetallePedido> listaDetallePedido= new List<DetallePedido>();
             AccesoDatos accesoDatos = new AccesoDatos();
+            DetallePedido detallePedido=null;
 
             try
             {
@@ -82,13 +83,14 @@ namespace Negocio
                         detallePedido.producto.Descripcion = accesoDatos.Lector["Descripcion"].ToString();
                         detallePedido.Cantidad = (int)accesoDatos.Lector["Cantidad"];
                         detallePedido.Precio = (decimal)accesoDatos.Lector["Precio"];
+                        listaDetallePedido.Add(detallePedido);
                     }
                     else
                     {
                         //producto.categorias.Add(new Categoria() { Descripcion = accesoDatos.Lector["Categoria"].ToString() });
                     }
                 }
-                return detallePedido;
+                return listaDetallePedido;
             }
             catch (Exception ex)
             {

@@ -23,7 +23,7 @@
     <div class="col s12 m2 l2">
         <p>
             <div class="card-action">
-                    <a class="waves-effect waves-light btn" href="VerDetallePedido.aspx?idPedido=<% = item.IdPedido.ToString() %>">VER</a>
+                    <a class="waves-effect waves-light btn" href="ListadoDetallePedido.aspx?idPedido=<% = item.IdPedido.ToString() %>">VER</a>
             </div>
         </p>
     </div>
