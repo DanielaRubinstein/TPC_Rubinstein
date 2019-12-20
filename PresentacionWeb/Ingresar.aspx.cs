@@ -21,19 +21,23 @@ namespace PresentacionWeb
 
         public void btnIngresar_Click(object sender, EventArgs e)
         {
-            Cliente cliente = new Cliente();
+            IUser usuario = new Cliente();
             ClienteNegocio clienteNegocio = new ClienteNegocio();
             try
             {
-                cliente.Mail = txtMail.Text.Trim();
-                cliente.Pass = txtPass.Text.Trim();
-                cliente = clienteNegocio.validarUsuario(cliente);
+                usuario.Mail = txtMail.Text.Trim();
+                usuario.Pass = txtPass.Text.Trim();
+                usuario = clienteNegocio.validarUsuario(usuario);
 
-                if (cliente != null)
+                if (usuario != null)
                 {
                     lblError.Visible = false;
-                    Session[ConstantesSession.USUARIO_LOGUEADO]=cliente;
-                    Response.Redirect("~/Chocolate");
+                    Session[ConstantesSession.USUARIO_LOGUEADO]=usuario;
+
+                    if (usuario is Administrador)
+                    { Response.Redirect("~/ListadoProductos");}
+                    else { Response.Redirect("~/Chocolate"); }
+                    
                 }
                 else
                 {

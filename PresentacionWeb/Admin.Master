@@ -1,5 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="PresentacionWeb.AdminMaster" %>
-
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="PresentacionWeb.Admin" %>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -31,22 +30,19 @@
       <ul id="nav-mobile" class="right hide-on-med-and-down">
            <li><a ID="linkIngresar" runat="server" href="~/Ingresar">Ingresar</a></li>
            <li><a ID="linkDesloguear" runat="server" href="~/Desloguear">Desloguear</a></li>
-           <li><a runat="server" href="~/Carrito"><i class="material-icons">add_shopping_cart</i></a></li>
+
       </ul>
     </div>
     <div class="nav-content">
       <ul class="tabs tabs-transparent">
-        <li class="tab"><a runat="server" href="~/Chocolate">CHOCOLATE</a></li>
-        <li class="tab"><a runat="server" href="~/Dulce-de-leche">DULCE DE LECHE</a></li>
-        <li class="tab"><a runat="server" href="~/Cheesecake">CHEESECAKE</a></li>
-        <li class="tab"><a runat="server" href="~/Frutales">FRUTALES</a></li>
-        <li class="tab"><a runat="server" href="~/Tematicas">TEMATICAS</a></li>
+        <li class="tab"><a runat="server" href="~/ListadoProductos">VER PRODUCTOS</a></li>
+        <li class="tab"><a runat="server" href="~/CargaProducto">CARGAR PRODUCTOS</a></li>
+        <li class="tab"><a runat="server" href="~/ListadoPedidos">PEDIDOS</a></li> 
       </ul>
     </div>
   </nav>
   <ul class="sidenav" id="mobile-demo">
     <li><a runat="server" href="~/Ingresar">Ingresar</a></li>
-    <li><a runat="server" href="~/Carrito">Carrito</a></li>
   </ul>
 
 
@@ -89,3 +85,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
+

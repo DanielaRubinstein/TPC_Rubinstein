@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ListadoDetallePedido.aspx.cs" Inherits="PresentacionWeb.ListadoDetallePedido" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ListadoDetallePedido.aspx.cs" Inherits="PresentacionWeb.ListadoDetallePedido" %>
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="ListadoDetallepedido" ContentPlaceHolderID="MainContent" runat="server">

@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Dominio
+{
+    public class Administrador : IUser
+    {
+        public int IdAdmin { get; set; }
+        public string Nombre { get; set; }
+        public string Pass { get; set; }
+        public string Mail { get; set; }
+
+
+    }
+}

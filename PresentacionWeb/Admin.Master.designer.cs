@@ -10,7 +10,7 @@
 namespace PresentacionWeb {
     
     
-    public partial class AdminMaster {
+    public partial class Admin {
         
         /// <summary>
         /// head control.
