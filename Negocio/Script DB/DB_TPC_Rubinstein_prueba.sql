@@ -133,25 +133,24 @@ insert into CATEGORIA(CATEGORIA) values('Tematicas')
 --CALCULAR PRECIOS CON EL IMPUESTO
 --PRODUCTO
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
-values ('Cheesecake Oreo',10,100,21,400,1,'https://drive.google.com/uc?id=1ebTBanCHNF9PHFAFn6iz2nNFbTsTWZd0')
+values ('Cheesecake Oreo',10,100,21,400,1,'https://drive.google.com/uc?id=1sNmubgVGXU_GO8q-C_XpFc3Qx6SnnA3C')
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
 values ('Torta de golosinas',10,100,21,200,1,'https://drive.google.com/uc?id=1ixn8lIkUz5tcbNo_-dFLSeVSbfgtreFi')
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
-values ('Tarta de manzana',10,100,21,200,1,'https://drive.google.com/uc?id=1sNmubgVGXU_GO8q-C_XpFc3Qx6SnnA3C')
+values ('Tarta de manzana',10,100,21,200,1,'https://drive.google.com/uc?id=1ebTBanCHNF9PHFAFn6iz2nNFbTsTWZd0')
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
-values ('Tarta de coco',10,100,21,200,1,'https://drive.google.com/uc?id=12oXldsEryI3vXW-Sj3p8uQRJrRyAJwqn')
+values ('Tarta de coco',10,100,21,200,1,'https://drive.google.com/uc?id=1KH9bMYhw7FjkSD8TrIzCIqF6qJAo9jna')
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
-values ('Marquise de chocolate',10,100,21,200,1,'https://drive.google.com/uc?id=1KH9bMYhw7FjkSD8TrIzCIqF6qJAo9jna')
-
+values ('Marquise de chocolate',10,100,21,200,1,'https://drive.google.com/uc?id=12oXldsEryI3vXW-Sj3p8uQRJrRyAJwqn')
 
 --CATEGORIAS POR PRODUCTO
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (1, 1)
-INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (1, 3)
-INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (2, 5)
+INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (1, 2)
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (2, 1)
+INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (2, 5)
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (3, 3)
-INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (4, 4)
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (4, 3)
+INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (4, 4)
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (5, 1)
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (5, 2)
 
@@ -221,4 +220,4 @@ inner join DETALLE_PEDIDO as DP on P.IdPedido=DP.IdPedido
 inner join Producto as Prod on DP.IdProducto=Prod.IdProducto
 where  DP.IdPedido=1
 
-update Producto set precio=400 where IdProducto=1
+--update Producto set precio=400 where IdProducto=1

@@ -73,7 +73,7 @@ namespace PresentacionWeb
         public void btnAceptar_Click(object sender, EventArgs e)
         {
             ProductoNegocio productoNegocio = new ProductoNegocio();
-            Producto producto = new Producto();
+            producto = new Producto();
             producto.IdProducto = int.Parse(Request.QueryString["IdProducto"]);
             producto.Descripcion = txtDescripcion.Text;
             producto.StockActual = Int32.Parse(txtStockActual.Text);

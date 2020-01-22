@@ -19,21 +19,21 @@
       </div>
       <div class="row">
         <div class="input-field col s4">
-        <asp:TextBox ID="txtImpuesto" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtImpuesto" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
           <label for="txtImpuesto">Impuesto</label>
         </div>
        <div class="input-field col s4">
-        <asp:TextBox ID="txtCosto" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtCosto" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
           <label for="txtCosto">Costo</label>
         </div>
         <div class="input-field col s4">
-        <asp:TextBox ID="txtPrecio" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtPrecio" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
           <label for="txtPrecio">Precio</label>
         </div>
       </div>
        <div class="row">
        <div class="input-field col s12">
-        <asp:TextBox ID="txtImagen" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtImagen" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
           <label for="txtImagen">Imagen</label>
         </div>
       </div>

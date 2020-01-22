@@ -83,16 +83,19 @@ namespace Negocio
 
                    consulta +=@" Delete from CATEGORIAS_X_PRODUCTO
                            where Idproducto="+ productoModificado.IdProducto;
-                
+
+                accesoDatos.InitComando();
+                accesoDatos.Comando.Parameters.Clear();
+
                 if (productoModificado.categorias != null && productoModificado.categorias.Count > 0)
                 {
 
                     for (int i = 0; i < productoModificado.categorias.Count; i++)
                     {
-                     consulta+= @" insert into CATEGORIAS_X_PRODUCTO
+                        consulta += @" insert into CATEGORIAS_X_PRODUCTO
                                 (IDPRODUCTO, IDCATEGORIA)
-                                values(" +productoModificado.IdProducto+", @IdCategoria" + i + ")";
-                      accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoModificado.categorias[i].IdCategoria);
+                                values(" + productoModificado.IdProducto + ", @IdCategoria" + i + ")";
+                        accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoModificado.categorias[i].IdCategoria);
                     }
                 }
 
@@ -116,7 +119,8 @@ namespace Negocio
             }
             finally
             {
-                accesoDatos.cerrarConexion();
+                if (accesoDatos != null)
+                    accesoDatos.cerrarConexion();
             }
         }
 
