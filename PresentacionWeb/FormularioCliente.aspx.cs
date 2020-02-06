@@ -13,6 +13,7 @@ namespace PresentacionWeb
     public partial class FormularioCliente : System.Web.UI.Page
     {
         private Cliente cliente = null;
+        bool valorRetorno = false;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -36,22 +37,20 @@ namespace PresentacionWeb
 
                 clienteNegocio.agregarCliente(cliente);
 
-                //if (cliente != null)
-                //{
-                //    lblCreado.Visible = true;
-                //    lblError.Visible = false;
-                //}
-                //else
-
-                //{
-                //    lblCreado.Visible = false;
-                //    lblError.Visible = true;
-                //}
+                if (cliente.Id <= 0)
+                {
+                    lblCreado.Visible = false;
+                    lblError.Visible = true;
+                }
+                else
+                {
+                    lblCreado.Visible = true;
+                    lblError.Visible = false;
+                }
 
             }
             catch (Exception)
             {
-
                 throw;
             } 
         }

@@ -221,3 +221,34 @@ inner join Producto as Prod on DP.IdProducto=Prod.IdProducto
 where  DP.IdPedido=1
 
 --update Producto set precio=400 where IdProducto=1
+
+--STORE PROCEDURE
+Go
+create procedure SP_crearCliente(
+    @Nombre varchar(50),
+    @Apellido varchar(50),
+    @Direccion varchar(60),
+    @Localidad varchar(60),
+    @Telefono varchar(60),
+    @Mail varchar(60),
+    @Pass varchar(60),   
+    @Estado bit,
+    @Bloqueado bit
+    )
+AS
+BEGIN
+BEGIN TRY
+    IF NOT EXISTS (SELECT * FROM Cliente WHERE Mail = @Mail)
+    INSERT INTO Cliente(nombre, apellido,direccion,localidad,telefono,mail,pass,estado,bloqueado) 
+    VALUES (@nombre, @apellido,@direccion,@localidad,@telefono,@mail,@pass,1,0)
+    ELSE
+    BEGIN
+      RAISERROR('Mail en uso, intentelo nuevamente',16,1)
+      RETURN 0
+    END
+END TRY
+BEGIN CATCH
+  PRINT ERROR_MESSAGE()
+END CATCH
+END
+

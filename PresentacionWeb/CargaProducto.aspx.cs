@@ -79,6 +79,7 @@ namespace PresentacionWeb
             producto.Estado = true;
 
             productoNegocio.agregarProducto(producto);
+            //mensaje de producto agregado correctamente
         }
 
         protected void btnModificar_Click()

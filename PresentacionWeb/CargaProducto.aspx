@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="CargaProducto.aspx.cs" Inherits="PresentacionWeb.CargaProducto" %>
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="CargaProducto" ContentPlaceHolderID="MainContent" runat="server">
 
      <script>    
          function validar() {

@@ -1,10 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="EditarProducto.aspx.cs" Inherits="PresentacionWeb.EditarProducto" %>
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<asp:Content ID="EditarProducto" ContentPlaceHolderID="MainContent" runat="server">
 
-
-    
    <div class="row">
     <form class="col s12" runat="server">
       <div class="row">

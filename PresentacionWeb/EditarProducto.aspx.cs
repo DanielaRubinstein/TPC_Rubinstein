@@ -15,6 +15,7 @@ namespace PresentacionWeb
         private Producto producto = null;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack) { 
             ////agregarle css a los checkbox
             ckbCategoryChocolate.InputAttributes.Add("class", "filled-in");
             ckbCategoryCheesecake.InputAttributes.Add("class", "filled-in");
@@ -67,13 +68,14 @@ namespace PresentacionWeb
                 //    ckbCategoryCheesecake.InputAttributes.Add("checked", "checked");
                 //}
             }
+            }
             //int variable = int.Parse(Request.QueryString["IdProducto"]);
         }
 
         public void btnAceptar_Click(object sender, EventArgs e)
         {
             ProductoNegocio productoNegocio = new ProductoNegocio();
-            producto = new Producto();
+            Producto producto = new Producto();
             producto.IdProducto = int.Parse(Request.QueryString["IdProducto"]);
             producto.Descripcion = txtDescripcion.Text;
             producto.StockActual = Int32.Parse(txtStockActual.Text);

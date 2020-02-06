@@ -67,12 +67,32 @@ namespace Negocio
         public void agregarCliente(Cliente clienteNuevo)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
-            string consulta = "";
+            //string consulta = "";
             try
             {
-                consulta = "insert into Cliente (Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Pass,Estado,Bloqueado)";
-                consulta = consulta + "values('" + clienteNuevo.Nombre + "','" + clienteNuevo.Apellido + "', '" + clienteNuevo.Direccion + "', '" + clienteNuevo.Localidad + "', '" + clienteNuevo.Telefono + "', '" + clienteNuevo.Mail + "', '" + clienteNuevo.Pass + "', '" + 1 + "', " + 0 + ")";
-                accesoDatos.SetearConsulta(consulta);
+
+                //consulta = "insert into Cliente (Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Pass,Estado,Bloqueado)";
+                //consulta = consulta + "values('" + clienteNuevo.Nombre + "','" + clienteNuevo.Apellido + "', '" + clienteNuevo.Direccion + "', '" + clienteNuevo.Localidad + "', '" + clienteNuevo.Telefono + "', '" + clienteNuevo.Mail + "', '" + clienteNuevo.Pass + "', '" + 1 + "', " + 0 + ")";
+                accesoDatos.SetearConsulta(@"exec SP_crearCliente 
+                                           @Nombre,
+                                           @Apellido,
+                                           @Direccion,
+                                           @Localidad,
+                                           @Telefono,
+                                           @Mail,
+                                           @Pass,
+                                           @Estado,
+                                           @Bloqueado");
+                accesoDatos.Comando.Parameters.Clear();
+                accesoDatos.Comando.Parameters.AddWithValue("@Nombre", clienteNuevo.Nombre);
+                accesoDatos.Comando.Parameters.AddWithValue("@Apellido", clienteNuevo.Apellido);
+                accesoDatos.Comando.Parameters.AddWithValue("@Direccion", clienteNuevo.Direccion);
+                accesoDatos.Comando.Parameters.AddWithValue("@Localidad", clienteNuevo.Localidad);
+                accesoDatos.Comando.Parameters.AddWithValue("@Telefono", clienteNuevo.Telefono);
+                accesoDatos.Comando.Parameters.AddWithValue("@Mail", clienteNuevo.Mail);
+                accesoDatos.Comando.Parameters.AddWithValue("@Pass", clienteNuevo.Pass);
+                accesoDatos.Comando.Parameters.AddWithValue("@Estado", clienteNuevo.Estado);
+                accesoDatos.Comando.Parameters.AddWithValue("@Bloqueado", clienteNuevo.Bloqueado);
                 accesoDatos.AbrirConexion();
                 accesoDatos.ejecutarAccion();
             }
