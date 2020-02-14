@@ -2,8 +2,6 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>--%>
 <asp:Content ID="FormularioCliente" ContentPlaceHolderID="MainContent" runat="server">
      <script>    
-
-
          function validarCampos() {
              var nombre = document.getElementById("txtNombre").value;
              var apellido = document.getElementById("txtApellido").value;
@@ -31,11 +29,18 @@
                  document.getElementById("<%=lblCreado.ClientID%>").style.display = 'block';
                  return true;
              }--%>
-             
          }
-
+         function soloNumeros(car) {
+             var key = window.Event ? car.which : car.keyCode;
+             //var Min_Length = 8;
+             //var length = $("#txtTelefono").val().length;
+             //if (length < Min_Length)
+             //{
+             //    $("#txtTelefono").after("<p style='color:red'>La cantidad de caracteres es 8 o 10, usted escribio " + length + " caracteres</p>");
+             //}
+             return (key >= 48 && key <= 57)
+         }
     </script>
-
 
     <div class="row">
     <form class="col s12" runat="server">
@@ -59,7 +64,7 @@
           <label for="txtLocalidad">Localidad</label>
         </div>
         <div class="input-field col s4">
-        <asp:TextBox ID="txtTelefono" ClientIDMode="Static" CssClass="validate" required="required" type="text" runat="server" />
+        <asp:TextBox ID="txtTelefono" ClientIDMode="Static" CssClass="validate" required="required" type="text" onkey="return soloNumeros(event)" runat="server" MaxLength="10" />
           <label for="txtTelefono">Telefono</label>
         </div>
       </div>
@@ -74,8 +79,8 @@
         </div>
       </div>
        <asp:Button class="btn waves-effect waves-light btn-large" OnClientClick="return validarCampos()" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Aceptar" ></asp:Button>
-       <asp:Label ID="lblCreado" runat="server" Text="Usuario creado, ya puede ingresar a su cuenta" CssClass="green-text" Visible="false"></asp:Label>
-       <asp:Label ID="lblError" runat="server" Text="Este mail ya existe. Intentelo nuevamente" CssClass="red-text" Visible="false"></asp:Label>
+       <asp:Label ID="lblCreado" ClientIDMode="Static" runat="server" Text="Usuario creado, ya puede ingresar a su cuenta" Visible="false"></asp:Label>
+       <asp:Label ID="lblError" ClientIDMode="Static" runat="server" Text="Este mail ya esta en uso. Intentelo nuevamente" Visible="false"></asp:Label>
     </form>
   </div>
 

@@ -79,13 +79,22 @@ namespace PresentacionWeb
             producto.Estado = true;
 
             productoNegocio.agregarProducto(producto);
-            //mensaje de producto agregado correctamente
+
+            if (producto.IdProducto <= 0)
+            {
+                lblCreado.Visible = false;
+                lblError.Visible = true;
+            }
+            else
+            {
+                lblCreado.Visible = true;
+                lblError.Visible = false;
+            }
+
         }
 
         protected void btnModificar_Click()
         {
-
-
         }
 
 

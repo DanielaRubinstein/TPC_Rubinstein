@@ -90,6 +90,7 @@ namespace Negocio
         {
             try
             {
+                conexion.Open();
                 comando.Connection = conexion;
                 return (int)comando.ExecuteScalar();
             }

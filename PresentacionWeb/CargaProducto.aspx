@@ -3,14 +3,6 @@
 </asp:Content>--%>
 <asp:Content ID="CargaProducto" ContentPlaceHolderID="MainContent" runat="server">
 
-     <script>    
-         function validar() {
-             var producto = document.getElementById("txtDescripcion").value;
-<%--             var stock = document.getElementById("<% = stock_actual %>").value;
-             var evoluciona = $("#<%= chkEvolucion.ClientID %>").is(":checked");--%>
-         }
-
-    </script>
 
    <div class="row">
     <form class="col s12" runat="server">
@@ -75,9 +67,9 @@
         <span>Frutales</span>
       </label>
     </p>
-   <asp:Button class="btn waves-effect waves-light btn-large"  OnClientClick="return validar()" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Aceptar" >
-    <%--<i class="material-icons right">send</i>--%>
-  </asp:Button>
+   <asp:Button class="btn waves-effect waves-light btn-large" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Aceptar" ></asp:Button>
+   <asp:Label ID="lblCreado" ClientIDMode="Static" runat="server" Text="Producto creado" CssClass="green-text" Visible="false"></asp:Label>
+   <asp:Label ID="lblError" ClientIDMode="Static" runat="server" Text="Error en la carga" CssClass="red-text" Visible="false"></asp:Label>
   </form>
   </div>
 

@@ -55,6 +55,28 @@
     padding: 16px 16px!important;
 }
 
+span#lblError {
+    background: #F44336 !important;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    position: relative;
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+    z-index: 9999;
+}
+
+span#lblCreado {
+    background: #2a6014 !important;
+    padding: 10px !important;
+    border-radius: 0 !important;
+    position: relative;
+    display: inline-block !important;
+    box-shadow: 1px 1px 1px #aaaaaa;
+    margin-top: 10px;
+    z-index: 9999;
+}
+
 @media (max-width:990px) {
     button .navbar-toggler {
         position: absolute;

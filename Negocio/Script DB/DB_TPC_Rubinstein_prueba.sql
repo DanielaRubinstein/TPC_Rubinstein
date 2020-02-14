@@ -169,27 +169,51 @@ insert into DETALLE_PEDIDO(IdPedido,IdProducto,Cantidad,Precio)values(2,3,1,200)
 
 
 --SELECTS
-select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P
-inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto=CxP.IDPRODUCTO
-inner join CATEGORIA as c on CxP.IDCATEGORIA=C.IDCATEGORIA
+--select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P
+--inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto=CxP.IDPRODUCTO
+--inner join CATEGORIA as c on CxP.IDCATEGORIA=C.IDCATEGORIA
 
-Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen 
-from producto as P 
-inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO 
-inner join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where Estado=1
---
-Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen 
-from producto as P 
-left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO 
-left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA 
-where Estado=1
+--Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen 
+--from producto as P 
+--inner join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO 
+--inner join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where Estado=1
+----
+--Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen 
+--from producto as P 
+--left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO 
+--left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA 
+--where Estado=1
 
-Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen 
-from producto as P 
-left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO 
-left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA 
-where P.IdProducto=1
+--Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen 
+--from producto as P 
+--left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO 
+--left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA 
+--where P.IdProducto=1
 
+--SELECT DE PEDIDO
+--select P.IdPedido,P.Fecha,P.FechaEntrega,P.Estado,
+--C.IdCliente,C.Nombre,C.Apellido,C.Direccion,C.Localidad,C.Telefono,C.Mail,
+--DP.IdDetalle, DP.Cantidad, DP.Precio,
+--Prod.Descripcion
+--from PEDIDO as P
+--inner join Cliente as C on P.IdCliente=C.IdCliente
+--inner join DETALLE_PEDIDO as DP on P.IdPedido=DP.IdPedido
+--inner join Producto as Prod on DP.IdProducto=Prod.IdProducto
+--where p.Estado=1 and exists(select 1 from pedido as p where p.IdPedido=DP.IdPedido group by p.IdPedido)
+
+--select * from PEDIDO 
+--inner join Cliente on PEDIDO.IdCliente=Cliente.IdCliente
+--inner join DETALLE_PEDIDO on PEDIDO.IdPedido=DETALLE_PEDIDO.IdPedido
+--inner join Producto on DETALLE_PEDIDO.IdProducto=Producto.IdProducto
+--where PEDIDO.Estado=1
+
+--select DP.IdDetalle, Prod.Descripcion, DP.Cantidad,DP.Precio
+--from PEDIDO as P
+--inner join DETALLE_PEDIDO as DP on P.IdPedido=DP.IdPedido
+--inner join Producto as Prod on DP.IdProducto=Prod.IdProducto
+--where  DP.IdPedido=1
+
+--update Producto set precio=400 where IdProducto=1
 select * from CATEGORIAS_X_PRODUCTO
 select * from CATEGORIA
 select * from Producto
@@ -197,33 +221,11 @@ select * from Cliente
 select * from Pedido
 select * from DETALLE_PEDIDO
 
---select de pedido
-select P.IdPedido,P.Fecha,P.FechaEntrega,P.Estado,
-C.IdCliente,C.Nombre,C.Apellido,C.Direccion,C.Localidad,C.Telefono,C.Mail,
-DP.IdDetalle, DP.Cantidad, DP.Precio,
-Prod.Descripcion
-from PEDIDO as P
-inner join Cliente as C on P.IdCliente=C.IdCliente
-inner join DETALLE_PEDIDO as DP on P.IdPedido=DP.IdPedido
-inner join Producto as Prod on DP.IdProducto=Prod.IdProducto
-where p.Estado=1 and exists(select 1 from pedido as p where p.IdPedido=DP.IdPedido group by p.IdPedido)
-
-select * from PEDIDO 
-inner join Cliente on PEDIDO.IdCliente=Cliente.IdCliente
-inner join DETALLE_PEDIDO on PEDIDO.IdPedido=DETALLE_PEDIDO.IdPedido
-inner join Producto on DETALLE_PEDIDO.IdProducto=Producto.IdProducto
-where PEDIDO.Estado=1
-
-select DP.IdDetalle, Prod.Descripcion, DP.Cantidad,DP.Precio
-from PEDIDO as P
-inner join DETALLE_PEDIDO as DP on P.IdPedido=DP.IdPedido
-inner join Producto as Prod on DP.IdProducto=Prod.IdProducto
-where  DP.IdPedido=1
-
---update Producto set precio=400 where IdProducto=1
 
 --STORE PROCEDURE
-Go
+
+--SP CLIENTE
+GO
 create procedure SP_crearCliente(
     @Nombre varchar(50),
     @Apellido varchar(50),
@@ -239,16 +241,23 @@ AS
 BEGIN
 BEGIN TRY
     IF NOT EXISTS (SELECT * FROM Cliente WHERE Mail = @Mail)
+    BEGIN
     INSERT INTO Cliente(nombre, apellido,direccion,localidad,telefono,mail,pass,estado,bloqueado) 
     VALUES (@nombre, @apellido,@direccion,@localidad,@telefono,@mail,@pass,1,0)
-    ELSE
+    SELECT cast (SCOPE_IDENTITY() as int)
+    END
+     ELSE
     BEGIN
-      RAISERROR('Mail en uso, intentelo nuevamente',16,1)
-      RETURN 0
+      --RAISERROR('Mail en uso, intentelo nuevamente',16,1)
+      SELECT 0    
     END
 END TRY
 BEGIN CATCH
   PRINT ERROR_MESSAGE()
 END CATCH
 END
+
+--SP PRODUCTO
+exec SP_crearCliente 'Daniela','Rubinstein','Ecuador 1444','Don Torcuato','4590-0099','danurubin@gmail.com','password1', 1, 1
+
 

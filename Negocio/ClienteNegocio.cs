@@ -64,13 +64,12 @@ namespace Negocio
         }
 
 
-        public void agregarCliente(Cliente clienteNuevo)
+        public int agregarCliente(Cliente clienteNuevo)
         {
             AccesoDatos accesoDatos = new AccesoDatos();
             //string consulta = "";
             try
             {
-
                 //consulta = "insert into Cliente (Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Pass,Estado,Bloqueado)";
                 //consulta = consulta + "values('" + clienteNuevo.Nombre + "','" + clienteNuevo.Apellido + "', '" + clienteNuevo.Direccion + "', '" + clienteNuevo.Localidad + "', '" + clienteNuevo.Telefono + "', '" + clienteNuevo.Mail + "', '" + clienteNuevo.Pass + "', '" + 1 + "', " + 0 + ")";
                 accesoDatos.SetearConsulta(@"exec SP_crearCliente 
@@ -93,12 +92,15 @@ namespace Negocio
                 accesoDatos.Comando.Parameters.AddWithValue("@Pass", clienteNuevo.Pass);
                 accesoDatos.Comando.Parameters.AddWithValue("@Estado", clienteNuevo.Estado);
                 accesoDatos.Comando.Parameters.AddWithValue("@Bloqueado", clienteNuevo.Bloqueado);
-                accesoDatos.AbrirConexion();
-                accesoDatos.ejecutarAccion();
+                //accesoDatos.Comando.Parameters.AddWithValue("@IdCliente", clienteNuevo.Id);
+                //accesoDatos.AbrirConexion();
+               // accesoDatos.ejecutarAccion();
+                int Id = (int)accesoDatos.ejecutarAccionReturn();
+                
+                return Id;
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
             finally

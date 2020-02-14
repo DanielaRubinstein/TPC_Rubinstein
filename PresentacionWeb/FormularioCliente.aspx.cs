@@ -35,9 +35,9 @@ namespace PresentacionWeb
                 cliente.Pass = txtPassword.Text;
                 cliente.Estado = true;
 
-                clienteNegocio.agregarCliente(cliente);
+                cliente.Id = clienteNegocio.agregarCliente(cliente);
 
-                if (cliente.Id <= 0)
+                if (cliente.Id <= 0) 
                 {
                     lblCreado.Visible = false;
                     lblError.Visible = true;
@@ -47,12 +47,12 @@ namespace PresentacionWeb
                     lblCreado.Visible = true;
                     lblError.Visible = false;
                 }
-
             }
             catch (Exception)
             {
                 throw;
-            } 
+            }
+
         }
 
 
