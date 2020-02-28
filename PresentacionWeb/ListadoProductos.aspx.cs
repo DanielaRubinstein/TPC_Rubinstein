@@ -41,6 +41,10 @@ namespace PresentacionWeb
 
         }
 
+        protected void DespublicarProducto(object sender, EventArgs e)
+        {
 
+
+        }
     }
 }

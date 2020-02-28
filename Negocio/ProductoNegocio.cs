@@ -96,10 +96,9 @@ namespace Negocio
                                 (IDPRODUCTO, IDCATEGORIA)
                                 values(" + productoModificado.IdProducto + ", @IdCategoria" + i + ")";
                         accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoModificado.categorias[i].IdCategoria);
+                        accesoDatos.ComandoQuery(consulta);
                     }
                 }
-
-                accesoDatos.ComandoQuery(consulta);
                 //accesoDatos.Comando.Parameters.Clear();
                 accesoDatos.Comando.Parameters.AddWithValue("@Descripcion", productoModificado.Descripcion);
                 //accesoDatos.Comando.Parameters.AddWithValue("@Categoria", productoModificado.categorias);
@@ -180,15 +179,15 @@ namespace Negocio
                                      (IDPRODUCTO, IDCATEGORIA)
                                      values((select ID from @Id), @IdCategoria" + i + ")";
                         accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoNuevo.categorias[i].IdCategoria);
+                        accesoDatos.ComandoQuery(consulta);
                     }    
                 }
-                accesoDatos.ComandoQuery(consulta);
+                
                 accesoDatos.Comando.Parameters.AddWithValue("@Descripcion", productoNuevo.Descripcion);
                 accesoDatos.Comando.Parameters.AddWithValue("@StockActual", productoNuevo.StockActual);
                 accesoDatos.Comando.Parameters.AddWithValue("@Precio", productoNuevo.Precio);
                 accesoDatos.Comando.Parameters.AddWithValue("@Impuesto", productoNuevo.Impuesto);
                 accesoDatos.Comando.Parameters.AddWithValue("@Costo", productoNuevo.Costo);
-                //accesoDatos.Comando.Parameters.AddWithValue("@IdProveedor", productoNuevo.Proveedor.IdEmpresa);
                 accesoDatos.Comando.Parameters.AddWithValue("@Estado", productoNuevo.Estado);
                 accesoDatos.Comando.Parameters.AddWithValue("@Imagen", productoNuevo.Imagen);
 

@@ -1,11 +1,25 @@
 ﻿<%@ Page Title="Carrito" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="PresentacionWeb.Carrito" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-
-
     <script>
-        const Calender = document.querySelector('.datepicker');
-        M.datepicker.init(Calender, {});
+        $(document).ready(function () {
+            $('.datepicker').datepicker();
+            $('.timepicker').timepicker();
+        });
+
+        var camposValidos = false;
+
+        function HabilitarBoton{
+         var botonEnviar = document.getElementById('boton');
+         if (camposValidos == false) {
+            botonEnviar.disabled = true;
+        }
+        else {
+            botonEnviar.disabled = false;
+            }
+        }
+
+
 
 
 
@@ -33,10 +47,13 @@
         </div>
       </div>
         <div class="input-field col s6">
-        <asp:TextBox ID="txtFecha" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
-            <label for="txtFecha">Agregar fecha de entrega</label>
-            <asp:TextBox runat="server" type="text" class="datepicker"/>
-             <asp:TextBox runat="server"  class="timepicker"/>
+        <asp:TextBox ID="txtFecha" ClientIDMode="Static" class="datepicker" runat="server" />
+            <label for="txtFecha">Agregar fecha entrega</label>
+        </div>
+
+      <div class="input-field col s6">
+         <asp:TextBox ID="txtHora" ClientIDMode="Static" runat="server" class="timepicker"  />
+          <label for="txtHora">Agregar hora de entrega</label>
         </div>
          <asp:Button class="btn waves-effect waves-light btn-large" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Confirmar pedido" >
                 <%--<i class="material-icons right">send</i>--%>

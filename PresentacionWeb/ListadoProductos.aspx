@@ -16,6 +16,12 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn" href="EditarProducto.aspx?idProducto=<% = item.IdProducto.ToString() %>">Editar</a>
                 </div>
+                 <p>
+                    <label for="Despublicar">
+                        <asp:CheckBox ClientIDMode="Static" ID="Despublicar" runat="server" Checked="false" OnCheckedChanged="DespublicarProducto"/>
+                     <span>Despublicar</span>
+                     </label>
+                  </p>
             </div>
         </div>
            <% }%>

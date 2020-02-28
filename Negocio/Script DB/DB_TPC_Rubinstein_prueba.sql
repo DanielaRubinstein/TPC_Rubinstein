@@ -86,10 +86,12 @@ create table PEDIDO(
 IdPedido int not null primary key identity(1,1),
 IdCliente int not null foreign key references CLIENTE(IdCliente),
 Fecha DATE not null,
-FechaEntrega DATE not null,
+FechaEntrega DATETIME not null,
+--HoraEntrega time not null,
 Estado bit not null,
 --CondicionVenta varchar(30) not null,
 )
+
 go
 create table DETALLE_PEDIDO(
 IdDetalle int not null primary key identity(1,1),
@@ -160,8 +162,8 @@ INSERT INTO PROVEEDORES_X_PRODUCTO(IDPRODUCTO, IDPROVEEDOR) VALUES (2, 2)
 INSERT INTO PROVEEDORES_X_PRODUCTO(IDPRODUCTO, IDPROVEEDOR) VALUES (3, 3)
 
 --PEDIDOS
-insert into PEDIDO(IdCliente,Fecha,FechaEntrega,Estado) values(1, getdate(), '2019-12-27',1)
-insert into PEDIDO(IdCliente,Fecha,FechaEntrega,Estado) values(2, getdate(), '2019-12-28',1)
+insert into PEDIDO(IdCliente,Fecha,FechaEntrega,HoraEntrega,Estado) values(1, getdate(), '2019-12-27','12:00',1)
+insert into PEDIDO(IdCliente,Fecha,FechaEntrega,HoraEntrega,Estado) values(2, getdate(), '2019-12-28','12:00',1)
 --DETALLE PEDIDOS
 insert into DETALLE_PEDIDO(IdPedido,IdProducto,Cantidad,Precio)values(1,1,1,200)
 insert into DETALLE_PEDIDO(IdPedido,IdProducto,Cantidad,Precio)values(1,2,1,200)
@@ -214,7 +216,7 @@ insert into DETALLE_PEDIDO(IdPedido,IdProducto,Cantidad,Precio)values(2,3,1,200)
 --where  DP.IdPedido=1
 
 --update Producto set precio=400 where IdProducto=1
-select * from CATEGORIAS_X_PRODUCTO
+select * from CATEGORIAS_X_PRODUCTO 
 select * from CATEGORIA
 select * from Producto
 select * from Cliente

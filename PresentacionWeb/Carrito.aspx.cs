@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using System.Web.Services;
 using Dominio;
 using Negocio;
+using System.Globalization;
 
 namespace PresentacionWeb
 {
@@ -60,24 +61,37 @@ namespace PresentacionWeb
             Pedido pedido = new Pedido();
             List<Producto> listaProducto = (List<Producto>)Session[ConstantesSession.CARRITO];
 
-            pedido.cliente = (Cliente)Session[ConstantesSession.USUARIO_LOGUEADO];
-            pedido.Fecha = DateTime.Now;
-            pedido.FechaEntrega = DateTime.Parse(txtFecha.Text);
-            pedido.detallePedido = new List<DetallePedido>();
-           
-            foreach (var item in listaProducto)
+            if (listaProducto != null && listaProducto.Count > 0 && !String.IsNullOrEmpty(txtFecha.Text) && !String.IsNullOrEmpty(txtHora.Text))
             {
-                DetallePedido detallePedido = new DetallePedido();
-                detallePedido.producto = item;
-                detallePedido.Cantidad = 1;
-                pedido.detallePedido.Add(detallePedido);
+                try
+                {
+                    pedido.cliente = (Cliente)Session[ConstantesSession.USUARIO_LOGUEADO];
+                    pedido.Fecha = DateTime.Now;
+                    TimeSpan horaEntrega = DateTime.ParseExact(txtHora.Text, "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
+                    pedido.FechaEntrega = DateTime.Parse(txtFecha.Text).Add(horaEntrega);
+                    pedido.detallePedido = new List<DetallePedido>();
+
+                    foreach (var item in listaProducto)
+                    {
+                        DetallePedido detallePedido = new DetallePedido();
+                        detallePedido.producto = item;
+                        detallePedido.Cantidad = 1;
+                        pedido.detallePedido.Add(detallePedido);
+                    }
+
+                    pedido.Estado = true;
+                    pedidoNegocio.AgregarPedido(pedido);
+
+                    Session[ConstantesSession.CARRITO] = null;
+                    Response.Redirect("~/PedidoConfirmado");
+
+                }
+                catch (Exception)
+                {
+
+                }
             }
 
-            pedido.Estado = true;
-            pedidoNegocio.AgregarPedido(pedido);
-
-            Session[ConstantesSession.CARRITO]=null;
-            Response.Redirect("~/PedidoConfirmado");
             //Mensaje de pedido enviado
         }
     }
