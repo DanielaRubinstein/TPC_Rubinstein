@@ -67,6 +67,24 @@
              }
          }
 
+         function validateMail() {
+             //var mail = $("#txtMail").val();
+             //var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+             //if (mail.find(mailFormat) == 1) {
+             //    $("#txtMail").addClass("valid");
+             //}
+             //else {
+             //    $("#txtMail").addClass("invalid");
+             //}
+             obj = document.getElementById("txtMail");
+             valueForm = obj.value;
+             var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
+             if (valueForm.search(mailFormat) == 0) {
+                 obj.className = "valid";
+             } else {
+                 obj.className = "invalid";
+             }
+         }
 
 
     </script>
@@ -99,7 +117,7 @@
       </div>
        <div class="row">
        <div class="input-field col s12">
-        <asp:TextBox ID="txtMail" ClientIDMode="Static" CssClass="validate" required="required" type="email" runat="server" />
+        <asp:TextBox ID="txtMail" ClientIDMode="Static" onFocusOut="return validateMail()" CssClass="validate" required="required" type="email" runat="server" />
           <label for="txtMail">Mail</label>
         </div>
          <div class="input-field col s12">
