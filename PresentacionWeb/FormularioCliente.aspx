@@ -30,27 +30,56 @@
                  return true;
              }--%>
          }
-         function soloNumeros(car) {
+         function onlyNumber(car) {
              var key = window.Event ? car.which : car.keyCode;
-             //var Min_Length = 8;
-             //var length = $("#txtTelefono").val().length;
-             //if (length < Min_Length)
-             //{
-             //    $("#txtTelefono").after("<p style='color:red'>La cantidad de caracteres es 8 o 10, usted escribio " + length + " caracteres</p>");
-             //}
              return (key >= 48 && key <= 57)
          }
+
+         function validateMin() {
+             var Min_Length = 8;
+             var length = $("#txtTelefono").val().length;
+             if (length < Min_Length)
+             {
+                 $("#txtTelefono").addClass("invalid");
+                 $("#txtTelefono").after("<p id='txtCaracteres' style='color:red'>La cantidad de caracteres es 8 o 10, usted escribio " + length + " caracteres</p>");
+             }
+         }
+
+         function cleanError() {
+             $("#txtCaracteres").remove();
+             $("#txtTelefono").addClass("valid");
+         }
+
+         function onlyLetter(e) {
+             key = e.keyCode || e.which;
+             tecla = String.fromCharCode(key).toLowerCase();
+             letter = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+             special = "8-37-39-46";
+             special_key = false
+             for (var i in special) {
+                 if (key == special[i]) {
+                     special_key = true;
+                     break;
+                 }
+             }
+             if (letter.indexOf(tecla) == -1 && !special_key) {
+                 return false;
+             }
+         }
+
+
+
     </script>
 
     <div class="row">
     <form class="col s12" runat="server">
       <div class="row">
         <div class="input-field col s6">
-        <asp:TextBox ID="txtNombre" ClientIDMode="Static" Name="txtNombre" CssClass="validate" required="required" data-error="debe completar los campos" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtNombre" ClientIDMode="Static" onKeyPress="return onlyLetter(event)" Name="txtNombre" CssClass="validate" required="required" data-error="debe completar los campos" type="text" runat="server" OnLoad="Page_Load" />
             <label for="txtNombre">Nombre</label>
         </div>
        <div class="input-field col s6">
-        <asp:TextBox ID="txtApellido" ClientIDMode="Static" CssClass="validate" required="required" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtApellido" ClientIDMode="Static" onKeyPress="return onlyLetter(event)" CssClass="validate" required="required" type="text" runat="server" OnLoad="Page_Load" />
           <label for="txtApellido">Apellido</label>
         </div>
       </div>
@@ -60,11 +89,11 @@
           <label for="txtDireccion">Direccion</label>
         </div>
        <div class="input-field col s4">
-        <asp:TextBox ID="txtLocalidad" ClientIDMode="Static" CssClass="validate" required="required" type="text" runat="server" />
+        <asp:TextBox ID="txtLocalidad" ClientIDMode="Static" onKeyPress="return onlyLetter(event)" CssClass="validate" required="required" type="text" runat="server" />
           <label for="txtLocalidad">Localidad</label>
         </div>
         <div class="input-field col s4">
-        <asp:TextBox ID="txtTelefono" ClientIDMode="Static" CssClass="validate" required="required" type="text" onkey="return soloNumeros(event)" runat="server" MaxLength="10" />
+        <asp:TextBox ID="txtTelefono" ClientIDMode="Static" onKeyPress="return onlyNumber(event)" onFocusOut="return validateMin()" onKeyUp="return cleanError()" CssClass="validate" required="required" type="text" runat="server" MaxLength="10" />
           <label for="txtTelefono">Telefono</label>
         </div>
       </div>
