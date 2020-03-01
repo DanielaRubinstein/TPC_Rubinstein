@@ -22,11 +22,11 @@
             <asp:Label ID="lblError" runat="server" Text="Mail y/o Password incorrectos" CssClass="red-text" Visible="false"></asp:Label>
         </div>
       </div>
-     <asp:Button class="btn waves-effect waves-light btn-large"  OnClick="btnIngresar_Click" type="submit" name="action" runat="server" Text="Ingresar" >
-     </asp:Button>
-            <div class="card-action">
-                    <a class="waves-effect waves-light btn" href="FormularioCliente.aspx">Usuario Nuevo</a>
-            </div>
+
+        <div class="row">
+            <asp:Button class="waves-effect waves-light btn" ClientIDMode="Static" OnClick="btnIngresar_Click" type="submit" runat="server" Text="Ingresar" CssClass="waves-effect waves-light btn" ForeColor="White"></asp:Button>
+          <a class="waves-effect waves-light btn" href="FormularioCliente.aspx">Usuario Nuevo</a>
+       </div>
     </form>
   </div>
 

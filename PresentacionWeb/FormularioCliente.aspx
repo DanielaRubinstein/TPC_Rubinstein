@@ -86,6 +86,15 @@
              }
          }
 
+         function validatePass() {
+             var Min_Length = 6;
+             var length = $("#txtPassword").val().length;
+             if (length < Min_Length) {
+                 $("#txtPassword").addClass("invalid");
+                 $("#txtPassword").after("<p id='txtCaracteres' style='color:red'>Minimo 6 caracteres</p>");
+             }
+         }
+
 
     </script>
 
@@ -121,7 +130,7 @@
           <label for="txtMail">Mail</label>
         </div>
          <div class="input-field col s12">
-        <asp:TextBox ID="txtPassword" ClientIDMode="Static" CssClass="validate" required="required" type="password" runat="server" />
+        <asp:TextBox ID="txtPassword" ClientIDMode="Static" CssClass="validate" onFocusOut="return validatePass()" onKeyUp="return cleanError()" required="required" type="password" runat="server" MaxLength="15" />
           <label for="txtPassword">Password</label>
         </div>
       </div>
