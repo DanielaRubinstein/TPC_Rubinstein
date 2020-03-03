@@ -77,21 +77,48 @@
 
 
     </script>
-<%--     lista de productos seleccionados 
- <asp:Label ID="cantidad" Text="text" runat="server" />--%>
-  <ul class="collection">
+  <form runat="server">
+<%--  <ul class="collection">
     <%foreach (var item in listaComprada){%>
     <li class="collection-item avatar">
       <img src="<%=item.Imagen%>" alt="" width="100" height="100"/>
       <span class="title"><%= item.Descripcion %></span>
       <p><%=item.Precio %></p>
-      <a href="#!" class="secondary-content"><i class="material-icons">delete_forever</i></a>
+        <label>Cantidad</label>
+          <select class="browser-default">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+         </select>
+      <asp:LinkButton runat="server" ClientIDMode="Static" data-id="<%=item.IdProducto%>" OnClick="eliminarProducto" class="secondary-content"><i class="material-icons">delete_forever</i></asp:LinkButton>
     </li>  
        <% }%>
+  </ul>--%>
+
+
+         
+
+ <asp:Repeater runat="server" ID="repetidor">
+       <ItemTemplate>
+   <ul class="collection">
+    <li class="collection-item avatar">
+      <img src="<%#Eval("Imagen")%>" alt="" width="100" height="100"/>
+      <span class="title"><%#Eval("Descripcion")%></span>
+      <p><%#Eval("Precio")%></p>
+<%--        <label>Cantidad</label>
+          <select class="browser-default">
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+         </select>--%>
+      <asp:LinkButton runat="server" CommandArgument='<%#Eval("IdProducto")%>' OnClick="btnArgumento_Click" class="secondary-content"><i class="material-icons">delete_forever</i></asp:LinkButton>
+    </li>  
   </ul>
+    </ItemTemplate>
+     </asp:Repeater>
 
  <div class="row">
-    <form class="col s12" runat="server">
+    <div class="col s12">
       <div class="row">
         <div class="input-field col s6 black-text">
           <i class="material-icons prefix">attach_money</i>
@@ -110,8 +137,9 @@
          <asp:Button class="btn waves-effect waves-light btn-large" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Confirmar pedido">
                 <%--<i class="material-icons right">send</i>--%>
          </asp:Button>
-    </form>
+    </div>
   </div>
+        </form>
    
 
 </asp:Content>

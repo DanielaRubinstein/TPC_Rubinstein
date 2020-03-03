@@ -19,7 +19,7 @@ namespace PresentacionWeb
             try
             {
                 ProductoNegocio productoNegocio = new ProductoNegocio();
-                listaProductos = productoNegocio.listar();
+                listaProductos = productoNegocio.listar(false);
 
                 //if (!IsPostBack)
                 //{

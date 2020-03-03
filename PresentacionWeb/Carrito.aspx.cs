@@ -53,6 +53,12 @@ namespace PresentacionWeb
             //suma de todos los precios
             total = listaComprada.Sum(x => x.Precio);
             //cantidad.Text = carrito.Count.ToString();
+
+            if (!IsPostBack)
+            { 
+                repetidor.DataSource = listaComprada;
+                repetidor.DataBind();
+            }
         }
 
         public void btnAceptar_Click(object sender, EventArgs e)
@@ -61,13 +67,14 @@ namespace PresentacionWeb
             Pedido pedido = new Pedido();
             List<Producto> listaProducto = (List<Producto>)Session[ConstantesSession.CARRITO];
 
+
             if (listaProducto != null && listaProducto.Count > 0 && !String.IsNullOrEmpty(txtFecha.Text) && !String.IsNullOrEmpty(txtHora.Text))
             {
                 try
                 {
                     pedido.cliente = (Cliente)Session[ConstantesSession.USUARIO_LOGUEADO];
                     pedido.Fecha = DateTime.Now;
-                    TimeSpan horaEntrega = DateTime.ParseExact(txtHora.Text, "hh:mm tt", CultureInfo.InvariantCulture).TimeOfDay;
+                    TimeSpan horaEntrega = DateTime.ParseExact(txtHora.Text, "HH:mm", CultureInfo.InvariantCulture).TimeOfDay;
                     pedido.FechaEntrega = DateTime.Parse(txtFecha.Text).Add(horaEntrega);
                     pedido.detallePedido = new List<DetallePedido>();
 
@@ -83,16 +90,40 @@ namespace PresentacionWeb
                     pedidoNegocio.AgregarPedido(pedido);
 
                     Session[ConstantesSession.CARRITO] = null;
+
                     Response.Redirect("~/PedidoConfirmado");
-
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-
+                    throw ex;
                 }
             }
 
             //Mensaje de pedido enviado
+        }
+
+        public void eliminarProducto(object sender, EventArgs e)
+        {
+            Producto producto = new Producto();
+
+
+        }
+
+        protected void btnArgumento_Click(object sender, EventArgs e)
+        {
+            int argument = Int32.Parse(((LinkButton)sender).CommandArgument);
+            Pedido pedido = new Pedido();
+            List<Producto> listaProducto = (List<Producto>)Session[ConstantesSession.CARRITO];
+            try
+            {
+                Session[ConstantesSession.CARRITO] = listaProducto.Where(x => x.IdProducto != argument).ToList();
+                Response.Redirect("~/Carrito");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
     }
 }

@@ -6,6 +6,9 @@
 
    <div class="row">
     <form class="col s12" runat="server">
+       <div class="row">
+               <asp:Label ID="lblCreado" ClientIDMode="Static" runat="server" Text="Producto creado" Visible="false"></asp:Label>
+        </div>
       <div class="row">
         <div class="input-field col s6">
         <asp:TextBox ID="txtDescripcion" ClientIDMode="Static" Name="txtDescripcion" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
@@ -67,9 +70,15 @@
         <span>Frutales</span>
       </label>
     </p>
+   <div style="margin-bottom:20px;" class="switch">
+     <label>
+      Inactivo
+      <asp:CheckBox ClientIDMode="Static" ID="ckbEstado" runat="server" />
+      <span class="lever"></span>
+      Activo
+    </label>
+  </div>
    <asp:Button class="btn waves-effect waves-light btn-large" OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Aceptar" ></asp:Button>
-   <asp:Label ID="lblCreado" ClientIDMode="Static" runat="server" Text="Producto creado" CssClass="green-text" Visible="false"></asp:Label>
-   <asp:Label ID="lblError" ClientIDMode="Static" runat="server" Text="Error en la carga" CssClass="red-text" Visible="false"></asp:Label>
   </form>
   </div>
 

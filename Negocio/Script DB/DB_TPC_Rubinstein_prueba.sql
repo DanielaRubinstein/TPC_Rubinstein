@@ -263,3 +263,37 @@ END
 exec SP_crearCliente 'Daniela','Rubinstein','Ecuador 1444','Don Torcuato','4590-0099','danurubin@gmail.com','password1', 1, 1
 
 
+--go
+--create procedure SP_crearProducto(
+--@Descripcion varchar(60),
+--@StockActual int,
+--@Precio money,
+--@Impuesto money,
+--@Costo money,
+--@Estado bit,
+--@Imagen varchar(200),
+--@IdCategoria int
+--)
+--AS
+--BEGIN
+--BEGIN TRANSACTION
+--BEGIN TRY
+----Genero el producto
+--INSERT INTO producto (descripcion,stockactual,precio,impuesto,costo,estado,imagen) VALUES(@Descripcion,@StockActual,@Precio,@Impuesto,@Costo,1,@Imagen)
+----Declaro el IdProducto creado
+--DECLARE @IdProducto int
+--SET @IdProducto = @@IDENTITY
+----Asigno categorias al producto
+--insert into CATEGORIAS_X_PRODUCTO(IDCATEGORIA,IDPRODUCTO) values(@IdCategoria, @IdProducto) 
+
+--COMMIT TRANSACTION
+--END TRY
+--BEGIN CATCH
+--PRINT 'QUÉ RARO, EN MI CASA FUNCIONA'
+--ROLLBACK TRANSACTION
+--END CATCH 
+--END
+
+
+
+

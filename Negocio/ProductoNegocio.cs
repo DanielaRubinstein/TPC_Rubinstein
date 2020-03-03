@@ -9,7 +9,7 @@ namespace Negocio
 {
     public class ProductoNegocio
     {
-        public List<Producto> listar()
+        public List<Producto> listar(bool filtroEstado=true)
         {
             List<Producto> lista = new List<Producto>();
             AccesoDatos accesoDatos = new AccesoDatos();
@@ -17,7 +17,12 @@ namespace Negocio
 
             try
             {
-                accesoDatos.SetearConsulta("Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA where Estado = 1");
+                string consulta = "Select P.IdProducto, P.Descripcion,C.Categoria,StockActual,Precio,Impuesto,Costo,Estado,Imagen from producto as P left join CATEGORIAS_X_PRODUCTO as CxP on P.IdProducto = CxP.IDPRODUCTO left join CATEGORIA as c on CxP.IDCATEGORIA = C.IDCATEGORIA ";
+                if (filtroEstado == true)
+                {
+                    consulta += "where Estado = 1";
+                }
+                accesoDatos.SetearConsulta(consulta);
                 accesoDatos.AbrirConexion();
                 accesoDatos.ejecutarConsulta();
 
@@ -95,10 +100,11 @@ namespace Negocio
                         consulta += @" insert into CATEGORIAS_X_PRODUCTO
                                 (IDPRODUCTO, IDCATEGORIA)
                                 values(" + productoModificado.IdProducto + ", @IdCategoria" + i + ")";
-                        accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoModificado.categorias[i].IdCategoria);
-                        accesoDatos.ComandoQuery(consulta);
+                        accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoModificado.categorias[i].IdCategoria);    
                     }
+                    
                 }
+                 accesoDatos.ComandoQuery(consulta);
                 //accesoDatos.Comando.Parameters.Clear();
                 accesoDatos.Comando.Parameters.AddWithValue("@Descripcion", productoModificado.Descripcion);
                 //accesoDatos.Comando.Parameters.AddWithValue("@Categoria", productoModificado.categorias);
@@ -166,7 +172,7 @@ namespace Negocio
                                          @Precio,
                                          @Impuesto,
                                          @Costo,
-                                         1,
+                                         @Estado,
                                          @Imagen)
                                         ";
                 accesoDatos.InitComando();
@@ -179,10 +185,9 @@ namespace Negocio
                                      (IDPRODUCTO, IDCATEGORIA)
                                      values((select ID from @Id), @IdCategoria" + i + ")";
                         accesoDatos.Comando.Parameters.AddWithValue("@IdCategoria" + i, productoNuevo.categorias[i].IdCategoria);
-                        accesoDatos.ComandoQuery(consulta);
                     }    
                 }
-                
+                accesoDatos.ComandoQuery(consulta);
                 accesoDatos.Comando.Parameters.AddWithValue("@Descripcion", productoNuevo.Descripcion);
                 accesoDatos.Comando.Parameters.AddWithValue("@StockActual", productoNuevo.StockActual);
                 accesoDatos.Comando.Parameters.AddWithValue("@Precio", productoNuevo.Precio);

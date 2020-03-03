@@ -123,11 +123,7 @@ namespace Negocio
                     accesoDatos.cerrarConexion();
             }
 
-
-
-
         }
 
-       
     }
 }

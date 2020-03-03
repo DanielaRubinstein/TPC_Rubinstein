@@ -13,6 +13,15 @@ namespace PresentacionWeb {
     public partial class CargaProducto {
         
         /// <summary>
+        /// lblCreado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblCreado;
+        
+        /// <summary>
         /// txtDescripcion control.
         /// </summary>
         /// <remarks>
@@ -112,21 +121,12 @@ namespace PresentacionWeb {
         protected global::System.Web.UI.WebControls.CheckBox ckbCategoryFrutales;
         
         /// <summary>
-        /// lblCreado control.
+        /// ckbEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCreado;
-        
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.CheckBox ckbEstado;
     }
 }

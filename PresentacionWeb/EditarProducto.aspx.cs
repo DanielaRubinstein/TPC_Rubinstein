@@ -15,7 +15,8 @@ namespace PresentacionWeb
         private Producto producto = null;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { 
+            if (!IsPostBack)
+          { 
             ////agregarle css a los checkbox
             ckbCategoryChocolate.InputAttributes.Add("class", "filled-in");
             ckbCategoryCheesecake.InputAttributes.Add("class", "filled-in");
@@ -40,35 +41,33 @@ namespace PresentacionWeb
                 txtPrecio.Text = producto.Precio.ToString();
                 txtCosto.Text = producto.Costo.ToString();
                 txtImagen.Text = producto.Imagen.ToString();
-
+                ckbEstado.Checked = producto.Estado;
                 foreach (Categoria item in producto.categorias)
                 {
                     switch (item.Descripcion)
                     {
-                        case "Chocolate":ckbCategoryChocolate.Checked = true;
+                        case "Chocolate":
+                                ckbCategoryChocolate.Checked = true;
                             break;
                         case "Cheesecake":
                             ckbCategoryCheesecake.Checked = true;
                             break;
                         case "Frutales":
-                            ckbCategoryCheesecake.Checked = true;
+                            ckbCategoryFrutales.Checked = true;
                             break;
                         case "Dulce de leche":
-                            ckbCategoryCheesecake.Checked = true;
+                            ckbCategoryDulce.Checked = true;
                             break;
                         case "Tematicas":
-                            ckbCategoryCheesecake.Checked = true;
+                            ckbCategoryTematicas.Checked = true;
                             break;
                         default:
                             break;
                     }
                 }
-                //if ()
-                //{
-                //    ckbCategoryCheesecake.InputAttributes.Add("checked", "checked");
-                //}
             }
-            }
+               
+           }
             //int variable = int.Parse(Request.QueryString["IdProducto"]);
         }
 
@@ -83,6 +82,7 @@ namespace PresentacionWeb
             producto.Precio = decimal.Parse(txtPrecio.Text);
             producto.Costo = decimal.Parse(txtCosto.Text);
             producto.Imagen = txtImagen.Text;
+            producto.Estado = ckbEstado.Checked;
             producto.categorias = new List<Categoria>();
 
             if (ckbCategoryChocolate.Checked == true)
@@ -121,12 +121,13 @@ namespace PresentacionWeb
                 });
             }
 
-            producto.Estado = true;
+            
             productoNegocio.modificarProducto(producto);
-        }
+            lblCreado.Visible = true;
 
-        protected void btnModificar_Click()
-        {
+            //string prevPage = Request.UrlReferrer.ToString();
+            //System.Threading.Thread.Sleep(5000);
+            Response.AddHeader("REFRESH", "3; URL=ListadoProductos.aspx");
 
         }
 

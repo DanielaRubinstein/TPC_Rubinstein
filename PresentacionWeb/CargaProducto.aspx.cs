@@ -39,6 +39,7 @@ namespace PresentacionWeb
             producto.Precio = decimal.Parse(txtPrecio.Text);
             producto.Costo = decimal.Parse(txtCosto.Text);
             producto.Imagen = txtImagen.Text;
+            producto.Estado = ckbEstado.Checked;
             producto.categorias = new List<Categoria>();
 
             if (ckbCategoryChocolate.Checked == true)
@@ -75,22 +76,9 @@ namespace PresentacionWeb
                     IdCategoria = Int32.Parse(ckbCategoryFrutales.InputAttributes["data-categoryId"])
                 });
             }
-
-            producto.Estado = true;
-
             productoNegocio.agregarProducto(producto);
-
-            if (producto.IdProducto <= 0)
-            {
-                lblCreado.Visible = false;
-                lblError.Visible = true;
-            }
-            else
-            {
-                lblCreado.Visible = true;
-                lblError.Visible = false;
-            }
-
+            lblCreado.Visible = true;
+            Response.AddHeader("REFRESH", "3; URL=ListadoProductos.aspx");
         }
 
         protected void btnModificar_Click()

@@ -5,6 +5,9 @@
 
    <div class="row">
     <form class="col s12" runat="server">
+        <div class="row">
+               <asp:Label ID="lblCreado" ClientIDMode="Static" runat="server" Text="Producto editado" Visible="false"></asp:Label>
+        </div>
       <div class="row">
         <div class="input-field col s6">
         <asp:TextBox ID="txtDescripcion" ClientIDMode="Static" Name="txtDescripcion" CssClass="validate" type="text" runat="server" OnLoad="Page_Load"></asp:TextBox>
@@ -65,13 +68,23 @@
         <asp:CheckBox ClientIDMode="Static" ID="ckbCategoryFrutales" runat="server" OnLoad="Page_Load"/>
         <span>Frutales</span>
       </label>
-    </p>
-   <asp:Button class="btn waves-effect waves-light btn-large"  OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Aceptar" >
-    <%--<i class="material-icons right">send</i>--%>
-  </asp:Button>
-  </form>
+    </p>  
+
+<%--       <label for="ckbEstado">
+        <asp:CheckBox ClientIDMode="Static" ID="ckbEstado" runat="server" />
+         <span>Activo</span>
+      </label>--%>
+   <div style="margin-bottom:20px;" class="switch">
+     <label>
+      Inactivo
+      <asp:CheckBox ClientIDMode="Static" ID="ckbEstado" runat="server" />
+      <span class="lever"></span>
+      Activo
+    </label>
   </div>
 
-
+   <asp:Button class="btn waves-effect waves-light btn-large"  OnClick="btnAceptar_Click" type="submit" name="action" runat="server" Text="Aceptar" ></asp:Button>
+  </form>
+  </div>
 
 </asp:Content>
