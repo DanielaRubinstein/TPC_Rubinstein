@@ -115,6 +115,7 @@ INSERT INTO PROVEEDOR (CUIL, RazonSocial, Direccion, Localidad, Contacto, Telefo
 insert into Cliente(Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Estado,Pass,Bloqueado)values ('Daniela','Rubinstein','Ecuador 1444','Don Torcuato','4590-0099','danurubin@gmail.com',1,'password1',1)
 insert into Cliente(Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Estado,Pass,Bloqueado)values ('Bireli','Lagrene','Brasil 789','Florida','4678-0033','birelilagrene@outlook.com',1,'password2',1)
 insert into Cliente(Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Estado,Pass,Bloqueado)values ('Marco','Gallo','Calle 15','La Plata','0345-345-678','mgallo@gmail.com',1,'password3',1)
+insert into Cliente(Nombre,Apellido,Direccion,Localidad,Telefono,Mail,Estado,Pass,Bloqueado)values ('Maria','Rubinstein','Brasil 888','Don Torcuato','4590-5555','nanurubinstein@gmail.com',1,'password1',1)
 
 --ADMIN
 insert into Administrador(Nombre,Mail,Pass)values ('Veronica','verodelecumbarry@gmail.com','password1')

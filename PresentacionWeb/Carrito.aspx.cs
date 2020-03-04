@@ -107,23 +107,17 @@ namespace PresentacionWeb
             {
                 MailMessage Mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
-                //Mail.From = new MailAddress("tortaslasframbuesas@gmail.com");
-                Mail.From = new MailAddress("Memorex.FRGP@gmail.com");
-
-                Mail.To.Add("elias_valenzuela51@yahoo.com.ar");
+                Mail.From = new MailAddress("tortaslasframbuesas@gmail.com");
+                Mail.To.Add("nanurubinstein@gmail.com");
                 Mail.Subject = "Pedido Las Frambuesas";
-                //Mail.Body = (comentario.Descripcion);
                 Mail.Body = "Tu pedido fue recibido con exito, nos estaremos contactando para la entrega";
                 SmtpServer.Port = 25;
-                //SmtpServer.Credentials = new System.Net.NetworkCredential("tortaslasframbuesas@gmail.com", "Mamuchi0912");
-                SmtpServer.Credentials = new System.Net.NetworkCredential("Memorex.FRGP@gmail.com", "CameraMouse");
-
+                SmtpServer.Credentials = new System.Net.NetworkCredential("tortaslasframbuesas@gmail.com", "UTNFRGP2020");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(Mail);
             }
             catch (Exception ex)
             {
-
                 throw ex;
             } 
         }
