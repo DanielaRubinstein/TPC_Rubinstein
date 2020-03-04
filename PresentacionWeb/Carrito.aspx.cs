@@ -109,6 +109,7 @@ namespace PresentacionWeb
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 Mail.From = new MailAddress("tortaslasframbuesas@gmail.com");
                 Mail.To.Add("nanurubinstein@gmail.com");
+                //Mail.To.Add(mail);
                 Mail.Subject = "Pedido Las Frambuesas";
                 Mail.Body = "Tu pedido fue recibido con exito, nos estaremos contactando para la entrega";
                 SmtpServer.Port = 25;
