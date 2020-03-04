@@ -9,6 +9,7 @@ using System.Web.Services;
 using Dominio;
 using Negocio;
 using System.Globalization;
+using System.Net.Mail;
 
 namespace PresentacionWeb
 {
@@ -88,9 +89,9 @@ namespace PresentacionWeb
 
                     pedido.Estado = true;
                     pedidoNegocio.AgregarPedido(pedido);
+                    EnvioMail(pedido.cliente.Mail);
 
                     Session[ConstantesSession.CARRITO] = null;
-
                     Response.Redirect("~/PedidoConfirmado");
                 }
                 catch (Exception ex)
@@ -98,8 +99,42 @@ namespace PresentacionWeb
                     throw ex;
                 }
             }
+        }
 
-            //Mensaje de pedido enviado
+        protected void SendMail(string mail)
+        {
+            try
+            {
+                MailMessage Mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+                //Mail.From = new MailAddress("tortaslasframbuesas@gmail.com");
+                Mail.From = new MailAddress("Memorex.FRGP@gmail.com");
+
+                Mail.To.Add("elias_valenzuela51@yahoo.com.ar");
+                Mail.Subject = "Pedido Las Frambuesas";
+                //Mail.Body = (comentario.Descripcion);
+                Mail.Body = "Tu pedido fue recibido con exito, nos estaremos contactando para la entrega";
+                SmtpServer.Port = 25;
+                //SmtpServer.Credentials = new System.Net.NetworkCredential("tortaslasframbuesas@gmail.com", "Mamuchi0912");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("Memorex.FRGP@gmail.com", "CameraMouse");
+
+                SmtpServer.EnableSsl = true;
+                SmtpServer.Send(Mail);
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            } 
+        }
+
+        void EnvioMail(string Mail)
+        {
+
+            //ClienteNegocio clienteNegocio = new ClienteNegocio();
+            //Cliente cliente = new Cliente();
+            //cliente = clienteNegocio.buscarCliente();
+            SendMail(Mail);
         }
 
         public void eliminarProducto(object sender, EventArgs e)
