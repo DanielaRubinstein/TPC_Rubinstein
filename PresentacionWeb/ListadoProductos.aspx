@@ -1,5 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ListadoProductos.aspx.cs" Inherits="PresentacionWeb.ListadoProductos" %>
 <asp:Content ID="ListadoProductos" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+
+        .card .card-image .card-title {
+            color: #fff;
+            background: #facdce;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            max-width: 100%;
+            padding: 4px!important;
+            }
+        .card .card-title {
+            font-size: 20px;
+            font-weight: 400;
+            }
+
+    </style>
+
 
     <form runat="server">
         <%for (int i = 0; i < listaProductos.Count; i++) 

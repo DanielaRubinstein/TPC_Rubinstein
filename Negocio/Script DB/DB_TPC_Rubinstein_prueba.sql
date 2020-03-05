@@ -144,7 +144,7 @@ values ('Tarta de manzana',10,100,21,200,1,'https://drive.google.com/uc?id=1ebTB
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
 values ('Tarta de coco',10,100,21,200,1,'https://drive.google.com/uc?id=1KH9bMYhw7FjkSD8TrIzCIqF6qJAo9jna')
 insert into Producto (Descripcion,StockActual,Costo,Impuesto,Precio,Estado,Imagen) 
-values ('Marquise de chocolate',10,100,21,200,1,'https://drive.google.com/uc?id=12oXldsEryI3vXW-Sj3p8uQRJrRyAJwqn')
+values ('Marquise chocolate',10,100,21,200,1,'https://drive.google.com/uc?id=12oXldsEryI3vXW-Sj3p8uQRJrRyAJwqn')
 
 --CATEGORIAS POR PRODUCTO
 INSERT INTO CATEGORIAS_X_PRODUCTO(IDPRODUCTO, IDCATEGORIA) VALUES (1, 1)

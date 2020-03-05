@@ -2,7 +2,29 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="CargaProducto" ContentPlaceHolderID="MainContent" runat="server">
+        <script>
+        function onlyLetter(e) {
+            key = e.keyCode || e.which;
+            tecla = String.fromCharCode(key).toLowerCase();
+            letter = " áéíóúabcdefghijklmnñopqrstuvwxyz";
+            special = "8-37-39-46";
+            special_key = false
+            for (var i in special) {
+                if (key == special[i]) {
+                    special_key = true;
+                    break;
+                }
+            }
+            if (letter.indexOf(tecla) == -1 && !special_key) {
+                return false;
+            }
+        }
 
+        function onlyNumber(car) {
+            var key = window.Event ? car.which : car.keyCode;
+            return (key >= 48 && key <= 57)
+        }
+    </script>
 
    <div class="row">
     <form class="col s12" runat="server">
@@ -11,25 +33,25 @@
         </div>
       <div class="row">
         <div class="input-field col s6">
-        <asp:TextBox ID="txtDescripcion" ClientIDMode="Static" Name="txtDescripcion" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtDescripcion" ClientIDMode="Static" Name="txtDescripcion" onKeyPress="return onlyLetter(event)" CssClass="validate" required="required" type="text" runat="server" OnLoad="Page_Load" />
             <label for="txtDescripcion">Producto</label>
         </div>
        <div class="input-field col s6">
-        <asp:TextBox ID="txtStockActual" ClientIDMode="Static" CssClass="validate" type="text" runat="server" OnLoad="Page_Load" />
+        <asp:TextBox ID="txtStockActual" ClientIDMode="Static" CssClass="validate" onKeyPress="return onlyNumber(event)" required="required" type="text" runat="server" OnLoad="Page_Load" />
           <label for="txtStockActual">Stock</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s4">
-        <asp:TextBox ID="txtImpuesto" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
+        <asp:TextBox ID="txtImpuesto" ClientIDMode="Static" CssClass="validate" onKeyPress="return onlyNumber(event)" required="required" type="text" runat="server" />
           <label for="txtImpuesto">Impuesto</label>
         </div>
        <div class="input-field col s4">
-        <asp:TextBox ID="txtCosto" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
+        <asp:TextBox ID="txtCosto" ClientIDMode="Static" CssClass="validate" onKeyPress="return onlyNumber(event)" required="required" type="text" runat="server" />
           <label for="txtCosto">Costo</label>
         </div>
         <div class="input-field col s4">
-        <asp:TextBox ID="txtPrecio" ClientIDMode="Static" CssClass="validate" type="text" runat="server" />
+        <asp:TextBox ID="txtPrecio" ClientIDMode="Static" CssClass="validate" onKeyPress="return onlyNumber(event)" required="required" type="text" runat="server" />
           <label for="txtPrecio">Precio</label>
         </div>
       </div>

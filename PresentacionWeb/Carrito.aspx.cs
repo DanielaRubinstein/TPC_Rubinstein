@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
-using System.Web.Services;
-using Dominio;
+﻿using Dominio;
 using Negocio;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Net.Mail;
+using System.Web.UI.WebControls;
 
 namespace PresentacionWeb
 {
@@ -22,7 +18,7 @@ namespace PresentacionWeb
             if (Session[ConstantesSession.USUARIO_LOGUEADO] == null)
             {
                 Response.Redirect("~/Ingresar");
-               
+
             }
 
             listaComprada = (List<Producto>)Session[ConstantesSession.CARRITO];
@@ -56,7 +52,7 @@ namespace PresentacionWeb
             //cantidad.Text = carrito.Count.ToString();
 
             if (!IsPostBack)
-            { 
+            {
                 repetidor.DataSource = listaComprada;
                 repetidor.DataBind();
             }
@@ -108,11 +104,11 @@ namespace PresentacionWeb
                 MailMessage Mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
                 Mail.From = new MailAddress("tortaslasframbuesas@gmail.com");
-                Mail.To.Add("nanurubinstein@gmail.com");
-                //Mail.To.Add(mail);
+                //Mail.To.Add("nanurubinstein@gmail.com");
+                Mail.To.Add(mail);
                 Mail.Subject = "Pedido Las Frambuesas";
-                Mail.Body = "Tu pedido fue recibido con exito, nos estaremos contactando para la entrega";
-                SmtpServer.Port = 25;
+                Mail.Body = "Recibimos tu pedido, nos estaremos comunicando para la entrega";
+                SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("tortaslasframbuesas@gmail.com", "UTNFRGP2020");
                 SmtpServer.EnableSsl = true;
                 SmtpServer.Send(Mail);
@@ -120,7 +116,7 @@ namespace PresentacionWeb
             catch (Exception ex)
             {
                 throw ex;
-            } 
+            }
         }
 
         void EnvioMail(string Mail)
