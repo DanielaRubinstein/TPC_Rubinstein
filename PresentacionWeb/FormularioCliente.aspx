@@ -3,8 +3,8 @@
 <asp:Content ID="FormularioCliente" ContentPlaceHolderID="MainContent" runat="server">
 
     <style>
-        #lblCreado{ color: #4F8A10;background-color: #DFF2BF;margin:10px 22px;font-size:16px;vertical-align:middle;}
-        #lblError{color: #D8000C;background-color: #FFD2D2;margin:10px 22px;font-size:16px;vertical-align:middle;}
+        span#lblCreado{ color: #4F8A10!important;background: #DFF2BF!important;margin:10px 22px;font-size:16px;vertical-align:middle;}
+        span#lblError{color: #D8000C!important;background: #FFD2D2!important;margin:10px 22px;font-size:16px;vertical-align:middle;}
         #txtCaracteres{color: #D8000C;background-color: #FFD2D2;margin:10px 22px;font-size:14px;vertical-align:middle;}
         .waves-light input{color:#fff;}
     </style>

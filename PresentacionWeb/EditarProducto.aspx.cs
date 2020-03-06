@@ -127,7 +127,7 @@ namespace PresentacionWeb
 
             //string prevPage = Request.UrlReferrer.ToString();
             //System.Threading.Thread.Sleep(5000);
-            Response.AddHeader("REFRESH", "3; URL=ListadoProductos.aspx");
+            Response.AddHeader("REFRESH", "2; URL=ListadoProductos.aspx");
 
         }
 
