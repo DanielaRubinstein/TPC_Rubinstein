@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="Frutales" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Frutales.aspx.cs" Inherits="PresentacionWeb.Frutal" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <style>
+<style>
 .card .card-image .card-title {
     color: #fff;
     background: #facdce!important;

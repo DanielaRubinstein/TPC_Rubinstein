@@ -1,6 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormularioCliente.aspx.cs" Inherits="PresentacionWeb.FormularioCliente" %>
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>--%>
 <asp:Content ID="FormularioCliente" ContentPlaceHolderID="MainContent" runat="server">
+
+    <style>
+        #lblCreado{ color: #4F8A10;background-color: #DFF2BF;margin:10px 22px;font-size:16px;vertical-align:middle;}
+        #lblError{color: #D8000C;background-color: #FFD2D2;margin:10px 22px;font-size:16px;vertical-align:middle;}
+        #txtCaracteres{color: #D8000C;background-color: #FFD2D2;margin:10px 22px;font-size:14px;vertical-align:middle;}
+        .waves-light input{color:#fff;}
+    </style>
+
      <script>    
          function validarCampos() {
              var nombre = document.getElementById("txtNombre").value;
@@ -41,7 +49,8 @@
              if (length < Min_Length)
              {
                  $("#txtTelefono").addClass("invalid");
-                 $("#txtTelefono").after("<p id='txtCaracteres' style='color:red'>La cantidad de caracteres es 8 o 10, usted escribio " + length + " caracteres</p>");
+                 $("#txtTelefono").after("<p id='txtCaracteres'>La cantidad de caracteres es 8 o 10, usted escribio " + length + " caracteres</p>");
+                 return false;
              }
          }
 
@@ -68,14 +77,6 @@
          }
 
          function validateMail() {
-             //var mail = $("#txtMail").val();
-             //var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
-             //if (mail.find(mailFormat) == 1) {
-             //    $("#txtMail").addClass("valid");
-             //}
-             //else {
-             //    $("#txtMail").addClass("invalid");
-             //}
              obj = document.getElementById("txtMail");
              valueForm = obj.value;
              var mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
@@ -91,7 +92,7 @@
              var length = $("#txtPassword").val().length;
              if (length < Min_Length) {
                  $("#txtPassword").addClass("invalid");
-                 $("#txtPassword").after("<p id='txtCaracteres' style='color:red'>Minimo 6 caracteres</p>");
+                 $("#txtPassword").after("<p id='txtCaracteres'>Minimo 6 caracteres</p>");
              }
          }
 

@@ -2,7 +2,10 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="EditarProducto" ContentPlaceHolderID="MainContent" runat="server">
-
+    <style>
+        #lblCreado{ color: #4F8A10;background-color: #DFF2BF;margin:10px 22px;font-size:14px;vertical-align:middle;}
+        #lblError{color: #D8000C;background-color: #FFD2D2;margin:10px 22px;font-size:14px;vertical-align:middle;}
+</style>
 
     <script>
 

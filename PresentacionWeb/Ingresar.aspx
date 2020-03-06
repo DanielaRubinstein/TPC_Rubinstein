@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <style>
         .waves-light input { color:#fff; outline:none;}
+        #lblError{color: #D8000C;background-color: #FFD2D2;margin:10px 22px;font-size:16px;vertical-align:middle;}
 
     </style>
     <div class="row">
@@ -22,7 +23,7 @@
       </div>
       <div class="row">
         <div class="input-field col s12">
-            <asp:Label ID="lblError" runat="server" Text="Mail y/o Password incorrectos" CssClass="red-text" Visible="false"></asp:Label>
+            <asp:Label ID="lblError" ClientIDMode="Static" runat="server" Text="Mail y/o Password incorrectos" CssClass="red-text" Visible="false"></asp:Label>
         </div>
       </div>
 

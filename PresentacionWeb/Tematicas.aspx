@@ -1,5 +1,23 @@
 ﻿<%@ Page Title="Tematicas" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Tematicas.aspx.cs" Inherits="PresentacionWeb.Tematicas" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
+
+<style>
+.card .card-image .card-title {
+    color: #fff;
+    background: #facdce!important;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    padding: 4px!important;
+}
+
+.card .card-title {
+    font-size: 20px!important;
+    font-weight: 400;
+}
+</style>
+
      <div class="row" >
         <%foreach (var item in listaProducto){%>
         <div class="col s10 m4">
