@@ -11,11 +11,11 @@
         width: 20%!important;
     }*/
 
-    .brand-logo img {
-        width: 80px;
-        height: 80px;
-        padding: 10px;
-    }
+.brand-logo img {
+    width: 80px;
+    height: 80px;
+    padding: 10px;
+}
 .login-carrito {
     position: absolute;
     display: flex;
@@ -76,6 +76,8 @@ span#lblCreado {
     margin-top: 10px;
     z-index: 9999;
 }
+
+
 
 @media (max-width:990px) {
     button .navbar-toggler {

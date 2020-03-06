@@ -2,6 +2,8 @@
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 <asp:Content ID="EditarProducto" ContentPlaceHolderID="MainContent" runat="server">
+
+
     <script>
 
         function onlyLetter(e) {

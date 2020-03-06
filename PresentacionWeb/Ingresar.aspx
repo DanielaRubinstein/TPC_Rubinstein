@@ -2,7 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <style>
+        .waves-light input { color:#fff; outline:none;}
 
+    </style>
     <div class="row">
     <form class="col s12" runat="server">
        <div class="row">
@@ -24,7 +27,7 @@
       </div>
 
         <div class="row">
-            <asp:Button class="waves-effect waves-light btn" ClientIDMode="Static" OnClick="btnIngresar_Click" type="submit" runat="server" Text="Ingresar" CssClass="waves-effect waves-light btn" ForeColor="White"></asp:Button>
+            <asp:Button class="waves-effect waves-light btn" ClientIDMode="Static" OnClick="btnIngresar_Click" type="submit" runat="server" Text="Ingresar" CssClass="waves-effect waves-light btn"></asp:Button>
           <a class="waves-effect waves-light btn" href="FormularioCliente.aspx">Usuario Nuevo</a>
        </div>
     </form>

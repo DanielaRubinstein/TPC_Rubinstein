@@ -137,12 +137,16 @@ namespace PresentacionWeb
 
         protected void btnArgumento_Click(object sender, EventArgs e)
         {
-            int argument = Int32.Parse(((LinkButton)sender).CommandArgument);
+            int argument = Int32.Parse(((LinkButton)sender).CommandArgument); // 1
             Pedido pedido = new Pedido();
             List<Producto> listaProducto = (List<Producto>)Session[ConstantesSession.CARRITO];
+
             try
             {
-                Session[ConstantesSession.CARRITO] = listaProducto.Where(x => x.IdProducto != argument).ToList();
+                listaProducto.RemoveAt(argument);
+
+                Session[ConstantesSession.CARRITO] = listaProducto;
+
                 Response.Redirect("~/Carrito");
             }
             catch (Exception ex)

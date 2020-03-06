@@ -24,7 +24,7 @@
     <%--MATERIALIZE--%>
     <nav class="nav-extended">
     <div class="nav-wrapper">
-      <a href="#"  alt="" class="brand-logo">
+      <a href="~/Home"  alt="" class="brand-logo" runat="server">
           <img src="https://drive.google.com/uc?id=0B30pqJ7Q99__TmpuZHJMYlEzVV83aHc0RUp4eGRpdFJMS1Rz" alt=""  />
       </a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>

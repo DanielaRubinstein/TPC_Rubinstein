@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin.Master" AutoEventWireup="true" CodeBehind="ListadoProductos.aspx.cs" Inherits="PresentacionWeb.ListadoProductos" %>
 <asp:Content ID="ListadoProductos" ContentPlaceHolderID="MainContent" runat="server">
     <style>
-
         .card .card-image .card-title {
             color: #fff;
             background: #facdce;
@@ -15,7 +14,6 @@
             font-size: 20px;
             font-weight: 400;
             }
-
     </style>
 
 
@@ -33,7 +31,7 @@
                     <span class="card-title"><%= item.Descripcion %></span>
                 </div>
                 <div class="card-content">
-                    <p><%=item.Precio %></p>
+                    <p>$ <%=item.Precio %></p>
                 </div>
                 <div class="card-action">
                     <a class="waves-effect waves-light btn" href="EditarProducto.aspx?idProducto=<% = item.IdProducto.ToString() %>">Editar</a> 
